@@ -1,0 +1,86 @@
+# Build the Next.js site as a static export and deploy to GitHub Pages.
+#
+# This workflow runs on every push to `main` (and on manual dispatch).
+# It builds with `output: export` + `basePath: /<repo-name>`, then pushes
+# the `out/` directory to the `gh-pages` branch, which GitHub Pages serves.
+#
+# Setup needed (one-time, ~2 min):
+#   1. Repo → Settings → Pages → "Build and deployment" → Source: "GitHub Actions"
+#      (this is the new mode that auto-detects this workflow)
+#   2. Repo → Settings → Actions → General → Workflow permissions → "Read and write"
+#   3. Push to main. The first run takes ~3 min. Site goes live at
+#      https://<username>.github.io/<repo-name>/
+#
+# Optional env vars (set in Repo → Settings → Secrets and variables → Actions):
+#   NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID  — required for the wallet modal to list wallets
+#   NEXT_PUBLIC_PULSAR_TOKEN              — deployed token address (skip for preview)
+#   NEXT_PUBLIC_PULSAR_STAKING            — deployed staking contract address
+#   NEXT_PUBLIC_UNISWAP_V2_PAIR           — Uniswap V2 pair on Base
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment, cancel in-progress ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Compute basePath
+        id: basepath
+        run: |
+          # GitHub Pages serves user repos at /<repo-name>/
+          # e.g. https://username.github.io/pulsar/ → basePath = /pulsar
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          echo "base_path=/$REPO_NAME" >> "$GITHUB_OUTPUT"
+          echo "Deploying with basePath=$REPO_NAME"
+
+      - name: Build static export
+        env:
+          GITHUB_PAGES: "1"
+          BASE_PATH: ${{ steps.basepath.outputs.base_path }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.basepath.outputs.base_path }}
+          NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID }}
+          NEXT_PUBLIC_PULSAR_TOKEN: ${{ secrets.NEXT_PUBLIC_PULSAR_TOKEN }}
+          NEXT_PUBLIC_PULSAR_STAKING: ${{ secrets.NEXT_PUBLIC_PULSAR_STAKING }}
+          NEXT_PUBLIC_UNISWAP_V2_PAIR: ${{ secrets.NEXT_PUBLIC_UNISWAP_V2_PAIR }}
+        run: bunx next build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
