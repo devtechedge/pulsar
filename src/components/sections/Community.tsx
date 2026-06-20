@@ -19,6 +19,7 @@ interface Social {
   name: string;
   description: string;
   href: string;
+  external: boolean;
 }
 
 const ITEMS: Social[] = [
@@ -28,7 +29,11 @@ const ITEMS: Social[] = [
   { icon: Github, name: "GitHub", description: "Source code & contracts", href: SOCIALS.github },
   { icon: BookOpen, name: "Docs", description: "Whitepaper & API", href: SOCIALS.docs },
   { icon: FileText, name: "Medium", description: "Long-form posts", href: SOCIALS.medium },
-];
+].map((s) => ({
+  ...s,
+  // Internal links (starting with /) should not open in a new tab.
+  external: !s.href.startsWith("/"),
+}));
 
 export function Community() {
   return (
@@ -44,8 +49,8 @@ export function Community() {
           <motion.a
             key={s.name}
             href={s.href}
-            target="_blank"
-            rel="noreferrer"
+            target={s.external ? "_blank" : undefined}
+            rel={s.external ? "noreferrer" : undefined}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.06 }}

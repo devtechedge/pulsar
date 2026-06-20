@@ -315,12 +315,12 @@ export const ROADMAP = [
 ] as const;
 
 export const SOCIALS = {
-  x: "https://x.com/pulsarcompute",
-  telegram: "https://t.me/pulsarcompute",
-  discord: "https://discord.gg/pulsarcompute",
-  github: "https://github.com/pulsarcompute",
-  docs: "https://docs.pulsarcompute.xyz",
-  medium: "https://medium.com/@pulsarcompute",
+  x: "https://x.com",
+  telegram: "https://telegram.org",
+  discord: "https://discord.com",
+  github: "https://github.com",
+  docs: "/docs",
+  medium: "https://medium.com",
 } as const;
 
 export const TRUST = {

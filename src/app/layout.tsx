@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -6,6 +6,17 @@ import { Providers } from "@/components/providers";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeBootstrap } from "@/components/ThemeBootstrap";
 import { themeInitScript } from "@/lib/theme-init";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#06070F" },
+    { media: "(prefers-color-scheme: light)", color: "#F4F2EE" },
+  ],
+};
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",

@@ -27,6 +27,7 @@ pragma solidity ^0.8.24;
  */
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
@@ -346,8 +347,4 @@ contract Pulsar is ERC20, Ownable, ReentrancyGuard, Pausable {
 
         super._update(from, to, amount);
     }
-}
-
-interface IERC20 {
-    function transfer(address to, uint256 amount) external returns (bool);
 }

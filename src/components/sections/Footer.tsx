@@ -31,7 +31,7 @@ const NETWORK = [
 ];
 
 const RESOURCES = [
-  { href: SOCIALS.docs, label: "Docs", external: true },
+  { href: SOCIALS.docs, label: "Docs", external: false },
   { href: IS_LIVE ? `${BASE_EXPLORER}/address/${PULSAR_TOKEN}` : BASE_EXPLORER, label: "Basescan", external: true },
   {
     href: IS_LIVE
@@ -92,18 +92,28 @@ export function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
               Resources
             </h3>
-            {RESOURCES.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target={l.external ? "_blank" : undefined}
-                rel={l.external ? "noreferrer" : undefined}
-                className="inline-flex items-center gap-1.5 text-sm text-foreground/80 transition-colors hover:text-pulsar-cyan"
-              >
-                {l.label}
-                {l.external && <ExternalLink className="size-3" />}
-              </a>
-            ))}
+            {RESOURCES.map((l) =>
+              l.external ? (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-foreground/80 transition-colors hover:text-pulsar-cyan"
+                >
+                  {l.label}
+                  <ExternalLink className="size-3" />
+                </a>
+              ) : (
+                <Link
+                  key={l.label}
+                  href={l.href}
+                  className="inline-flex items-center gap-1.5 text-sm text-foreground/80 transition-colors hover:text-pulsar-cyan"
+                >
+                  {l.label}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Network */}
