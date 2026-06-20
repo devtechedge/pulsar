@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "@/components/providers";
-import { asset } from "@/lib/asset";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeBootstrap } from "@/components/ThemeBootstrap";
+import { themeInitScript } from "@/lib/theme-init";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
@@ -13,6 +15,12 @@ const spaceGrotesk = Space_Grotesk({
 
 const inter = Inter({
   variable: "--font-body",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -55,8 +63,8 @@ export const metadata: Metadata = {
     creator: "@pulsarcompute",
   },
   icons: {
-    icon: asset("/favicon.svg"),
-    apple: asset("/favicon.svg"),
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
   },
   robots: { index: true, follow: true },
 };
@@ -65,11 +73,21 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" className="dark" data-theme="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
+      <head>
+        {/* Inline FOUC-prevention script — sets theme class before paint.
+            JSX defaults to "dark" so SSR + first paint is always dark (no FOUC).
+            The script + ThemeBootstrap then upgrade to the user's preferred theme
+            (stored or system) before React commits its hydration pass. */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} font-body antialiased bg-cosmos text-foreground min-h-screen flex flex-col selection:bg-pulsar/30 selection:text-white`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-pulsar/30 selection:text-white`}
       >
-        <Providers>{children}</Providers>
+        <ThemeBootstrap />
+        <ThemeProvider>
+          <Providers>{children}</Providers>
+        </ThemeProvider>
         <Toaster />
       </body>
     </html>

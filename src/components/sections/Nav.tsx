@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, ChevronDown, Radio } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ConnectButton } from "@/components/ConnectButton";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { asset } from "@/lib/asset";
 
 const NAV_LINKS = [
@@ -63,8 +64,15 @@ const MOBILE_NETWORK = NETWORK_GROUPS.flatMap((g) => [
 export function Nav() {
   const [open, setOpen] = useState(false);
 
+  // Listen for mobile bottom-nav "More" event to open the Sheet.
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("open-mobile-nav", handler);
+    return () => window.removeEventListener("open-mobile-nav", handler);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-cosmos/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/70 backdrop-blur-xl">
       <nav
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Primary"
@@ -107,12 +115,12 @@ export function Nav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="end"
-              className="w-[420px] border-white/10 bg-cosmos/95 p-2 backdrop-blur-xl"
+              className="w-[420px] border-border bg-background/95 p-2 backdrop-blur-xl"
               sideOffset={8}
             >
               {NETWORK_GROUPS.map((group, gi) => (
                 <div key={group.label}>
-                  {gi > 0 && <DropdownMenuSeparator className="my-2 bg-white/5" />}
+                  {gi > 0 && <DropdownMenuSeparator className="my-2 bg-border" />}
                   <DropdownMenuLabel className="px-2 text-xs font-semibold uppercase tracking-widest text-pulsar-cyan">
                     {group.label}
                   </DropdownMenuLabel>
@@ -144,8 +152,9 @@ export function Nav() {
             variant="ghost"
             className="hidden sm:inline-flex text-sm font-semibold text-foreground hover:text-pulsar-cyan"
           >
-            <Link href="#how-to-buy">Buy $PULSAR</Link>
+            <Link href="#how-to-buy" data-magnetic="true">Buy $PULSAR</Link>
           </Button>
+          <ThemeToggle className="hidden sm:inline-flex" />
           <div className="hidden sm:block">
             <ConnectButton />
           </div>
@@ -163,7 +172,7 @@ export function Nav() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-80 overflow-y-auto border-l border-white/5 bg-cosmos/95 p-6"
+              className="w-80 overflow-y-auto border-l border-border bg-background/95 p-6"
             >
               <div className="mb-6 flex items-center gap-2.5">
                 <img src={asset("/pulsar.svg")} alt="Pulsar logo" className="h-8 w-8" />
@@ -216,8 +225,9 @@ export function Nav() {
                   </Button>
                 </SheetClose>
                 <SheetClose asChild>
-                  <div className="flex justify-center">
+                  <div className="flex items-center justify-between">
                     <ConnectButton />
+                    <ThemeToggle />
                   </div>
                 </SheetClose>
               </div>

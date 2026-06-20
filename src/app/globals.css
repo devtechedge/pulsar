@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 @theme inline {
   --color-background: var(--background);
@@ -43,14 +44,20 @@
   --color-pulsar-cyan: var(--pulsar-cyan);
   --color-pulsar-violet: var(--pulsar-violet);
   --color-pulsar-glow: var(--pulsar-glow);
+  --color-pulsar-magenta: var(--pulsar-magenta);
+  --color-pulsar-emerald: var(--pulsar-emerald);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root {
-  /* Pulsar dark-cosmic palette (always-on; no light mode) */
+/* ============================================================================
+   DARK THEME (default — "Cosmos")
+   ========================================================================== */
+
+:root,
+.dark {
   --radius: 0.875rem;
 
   /* base canvas */
@@ -66,8 +73,10 @@
   /* brand gradient stops */
   --pulsar-violet: #7C3AED;
   --pulsar-cyan: #22D3EE;
-  --pulsar: #8B5CF6;        /* primary brand purple */
+  --pulsar: #8B5CF6;
   --pulsar-glow: rgba(124, 58, 237, 0.45);
+  --pulsar-magenta: #F472B6;
+  --pulsar-emerald: #34D399;
 
   --primary: #8B5CF6;
   --primary-foreground: #FFFFFF;
@@ -88,11 +97,11 @@
   --ring: rgba(139, 92, 246, 0.50);
 
   /* tokenomics chart palette */
-  --chart-1: #8B5CF6;  /* violet — ecosystem */
-  --chart-2: #22D3EE;  /* cyan — liquidity */
-  --chart-3: #F472B6;  /* pink — team */
-  --chart-4: #FBBF24;  /* amber — marketing */
-  --chart-5: #34D399;  /* green — treasury */
+  --chart-1: #8B5CF6;
+  --chart-2: #22D3EE;
+  --chart-3: #F472B6;
+  --chart-4: #FBBF24;
+  --chart-5: #34D399;
 
   --sidebar: #0B0D1C;
   --sidebar-foreground: #E6E9F5;
@@ -102,12 +111,76 @@
   --sidebar-accent-foreground: #C4B5FD;
   --sidebar-border: rgba(255, 255, 255, 0.08);
   --sidebar-ring: rgba(139, 92, 246, 0.50);
+
+  /* shadows */
+  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.3);
+  --shadow-card: 0 20px 60px -25px rgba(0, 0, 0, 0.8);
+
+  color-scheme: dark;
 }
 
-.dark {
-  /* single-theme: same as :root */
-  --background: #06070F;
-  --foreground: #E6E9F5;
+/* ============================================================================
+   LIGHT THEME ("Starlight")
+   ========================================================================== */
+
+.light {
+  --radius: 0.875rem;
+
+  /* base canvas — warm paper, not stark white */
+  --cosmos: #F4F2EE;
+  --background: #F4F2EE;
+  --foreground: #0F1020;
+
+  --card: rgba(255, 255, 255, 0.65);
+  --card-foreground: #0F1020;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F1020;
+
+  /* brand gradient stops — unchanged, work on both themes */
+  --pulsar-violet: #7C3AED;
+  --pulsar-cyan: #0891B2;
+  --pulsar: #7C3AED;
+  --pulsar-glow: rgba(124, 58, 237, 0.30);
+  --pulsar-magenta: #DB2777;
+  --pulsar-emerald: #059669;
+
+  --primary: #7C3AED;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: rgba(8, 145, 178, 0.08);
+  --secondary-foreground: #0E7490;
+
+  --muted: rgba(15, 16, 32, 0.05);
+  --muted-foreground: #5A5F7A;
+
+  --accent: rgba(124, 58, 237, 0.10);
+  --accent-foreground: #6D28D9;
+
+  --destructive: #DC2626;
+
+  --border: rgba(15, 16, 32, 0.10);
+  --input: rgba(15, 16, 32, 0.06);
+  --ring: rgba(124, 58, 237, 0.40);
+
+  --chart-1: #7C3AED;
+  --chart-2: #0891B2;
+  --chart-3: #DB2777;
+  --chart-4: #D97706;
+  --chart-5: #059669;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0F1020;
+  --sidebar-primary: #7C3AED;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgba(124, 58, 237, 0.08);
+  --sidebar-accent-foreground: #6D28D9;
+  --sidebar-border: rgba(15, 16, 32, 0.08);
+  --sidebar-ring: rgba(124, 58, 237, 0.40);
+
+  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.18);
+  --shadow-card: 0 20px 50px -25px rgba(15, 16, 32, 0.18);
+
+  color-scheme: light;
 }
 
 @layer base {
@@ -117,25 +190,43 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: "ss01", "cv11", "ss03";
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
   ::selection {
     background: rgba(139, 92, 246, 0.35);
     color: #fff;
   }
-  /* custom scrollbar */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
-  ::-webkit-scrollbar-track { background: #06070F; }
+  ::-webkit-scrollbar-track { background: var(--background); }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #7C3AED, #22D3EE);
+    background: linear-gradient(180deg, var(--pulsar-violet), var(--pulsar-cyan));
     border-radius: 999px;
-    border: 2px solid #06070F;
+    border: 2px solid var(--background);
   }
+
+  /* In light mode, override translucent white utilities to use ink-based colors
+     so existing components don't break — they get the right contrast for free. */
+  .light .bg-white\/\[0\.02\] { background-color: rgba(15, 16, 32, 0.02) !important; }
+  .light .bg-white\/\[0\.03\] { background-color: rgba(15, 16, 32, 0.03) !important; }
+  .light .bg-white\/\[0\.04\] { background-color: rgba(15, 16, 32, 0.04) !important; }
+  .light .bg-white\/5 { background-color: rgba(15, 16, 32, 0.05) !important; }
+  .light .bg-white\/10 { background-color: rgba(15, 16, 32, 0.08) !important; }
+  .light .bg-white\/20 { background-color: rgba(15, 16, 32, 0.12) !important; }
+  .light .border-white\/5 { border-color: rgba(15, 16, 32, 0.06) !important; }
+  .light .border-white\/8 { border-color: rgba(15, 16, 32, 0.08) !important; }
+  .light .border-white\/10 { border-color: rgba(15, 16, 32, 0.10) !important; }
+  .light .border-white\/15 { border-color: rgba(15, 16, 32, 0.12) !important; }
+  .light .border-white\/20 { border-color: rgba(15, 16, 32, 0.15) !important; }
+  /* text-white used for gradient button text — fine in both themes since buttons have colored bg */
+  /* bg-cosmos already replaced via --cosmos var, but hard-coded bg-cosmos class needs override */
+  .light .bg-cosmos { background-color: var(--background) !important; }
 }
 
 @layer utilities {
   .font-display { font-family: var(--font-display), system-ui, sans-serif; }
   .font-body    { font-family: var(--font-body), system-ui, sans-serif; }
+  .font-mono    { font-family: var(--font-mono), ui-monospace, monospace; }
 
   /* gradient text */
   .text-gradient {
@@ -144,17 +235,61 @@
     background-clip: text;
     color: transparent;
   }
+  .light .text-gradient {
+    background: linear-gradient(110deg, #6D28D9 0%, #7C3AED 35%, #0891B2 75%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 
-  /* glassmorphism card */
+  /* glassmorphism v1 (existing) */
   .glass {
     background: linear-gradient(180deg, rgba(20, 22, 44, 0.55), rgba(8, 9, 20, 0.45));
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--border);
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.05) inset,
+      0 -1px 0 rgba(255, 255, 255, 0.03) inset,
       0 20px 60px -25px rgba(0, 0, 0, 0.8);
   }
+  .light .glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 -1px 0 rgba(15, 16, 32, 0.04) inset,
+      0 20px 50px -25px rgba(15, 16, 32, 0.18);
+  }
+
+  /* glassmorphism v2 — richer gradient wash + mouse spotlight support */
+  .glass-v2 {
+    position: relative;
+    background:
+      radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(124, 58, 237, 0.10) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(20, 22, 44, 0.55), rgba(8, 9, 20, 0.45));
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.05) inset,
+      0 -1px 0 rgba(255, 255, 255, 0.03) inset,
+      0 20px 60px -25px rgba(0, 0, 0, 0.8);
+  }
+  .light .glass-v2 {
+    background:
+      radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(124, 58, 237, 0.06) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 20px 50px -25px rgba(15, 16, 32, 0.18);
+  }
+
   .glass-hover {
     transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -187,12 +322,45 @@
     pointer-events: none;
   }
 
+  /* rotating gradient border */
+  .gradient-border-rotate {
+    position: relative;
+    border-radius: inherit;
+  }
+  .gradient-border-rotate::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from var(--angle, 0deg), #7C3AED, #22D3EE, #F472B6, #7C3AED);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    animation: rotate-border 4s linear infinite;
+  }
+  @keyframes rotate-border { to { --angle: 360deg; } }
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
   /* pulsar radial glow */
   .pulsar-radial {
     background:
       radial-gradient(60% 50% at 50% 0%, rgba(124, 58, 237, 0.25) 0%, transparent 60%),
       radial-gradient(40% 40% at 80% 30%, rgba(34, 211, 238, 0.18) 0%, transparent 70%),
       radial-gradient(50% 60% at 20% 70%, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+  }
+  .light .pulsar-radial {
+    background:
+      radial-gradient(60% 50% at 50% 0%, rgba(124, 58, 237, 0.10) 0%, transparent 60%),
+      radial-gradient(40% 40% at 80% 30%, rgba(8, 145, 178, 0.08) 0%, transparent 70%),
+      radial-gradient(50% 60% at 20% 70%, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
   }
 
   /* slow pulse ring keyframes */
@@ -233,8 +401,42 @@
   @keyframes slow-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   .animate-slow-spin { animation: slow-spin 40s linear infinite; }
 
+  /* breathing (subtle scale) */
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.02); }
+  }
+  .animate-breathe { animation: breathe 4s ease-in-out infinite; }
+
+  /* number flip — for live counters */
+  @keyframes flip-in {
+    0%   { transform: rotateX(-90deg); opacity: 0; }
+    100% { transform: rotateX(0deg); opacity: 1; }
+  }
+  .animate-flip-in { animation: flip-in 300ms ease-out; transform-origin: center bottom; }
+
   /* utility: subtle text shadow for hero */
   .text-glow {
     text-shadow: 0 0 24px rgba(139, 92, 246, 0.45);
   }
+
+  /* spotlight card — mouse-tracking radial gradient */
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(124, 58, 237, 0.12) 0%, transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .spotlight-card:hover::after { opacity: 1; }
+
+  /* hide scrollbar for mobile bottom nav */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

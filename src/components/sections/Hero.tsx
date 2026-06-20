@@ -53,7 +53,7 @@ export function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button asChild className="group h-12 rounded-full bg-gradient-to-r from-pulsar-violet to-pulsar-cyan animate-gradient px-7 text-base font-semibold text-white shadow-lg shadow-pulsar/30 transition-transform hover:scale-[1.02]">
+            <Button asChild data-magnetic="true" className="group h-12 rounded-full bg-gradient-to-r from-pulsar-violet to-pulsar-cyan animate-gradient px-7 text-base font-semibold text-white shadow-lg shadow-pulsar/30 transition-transform hover:scale-[1.02]">
               <Link href="#how-to-buy">
                 Buy $PULSAR
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -96,7 +96,7 @@ export function Hero() {
               <CopyButton value={PULSAR_TOKEN} label="Copy contract address" />
             </div>
           ) : (
-            <div className="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-muted-foreground">
+            <div className="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-muted px-3 py-1.5 font-mono text-xs text-muted-foreground">
               Contract: deploying at TGE
             </div>
           )}

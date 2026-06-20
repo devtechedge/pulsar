@@ -45,7 +45,7 @@ const RESOURCES = [
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-white/5 bg-cosmos/80 backdrop-blur">
+    <footer className="mt-auto border-t border-border bg-background/80 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* top grid */}
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
