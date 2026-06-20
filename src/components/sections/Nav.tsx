@@ -2,9 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown, Radio } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { ConnectButton } from "@/components/ConnectButton";
 import { asset } from "@/lib/asset";
 
@@ -16,6 +24,41 @@ const NAV_LINKS = [
   { href: "#how-to-buy", label: "Buy" },
   { href: "#staking", label: "Staking" },
 ];
+
+// Network / ecosystem dropdown — 10 new thematic sections grouped into 3 categories
+const NETWORK_GROUPS = [
+  {
+    label: "Token Economics",
+    items: [
+      { href: "#vesting", label: "Vesting Calendar", desc: "On-chain unlock schedule" },
+      { href: "#burn", label: "Burn Tracker", desc: "Live buyback-and-burn" },
+      { href: "#metrics", label: "Token Metrics", desc: "On-chain dashboard" },
+    ],
+  },
+  {
+    label: "Live Network",
+    items: [
+      { href: "#pulse", label: "Network Pulse", desc: "Live compute job monitor" },
+      { href: "#oracle", label: "Pricing Oracle", desc: "Cost per AI workload" },
+      { href: "#bridge", label: "Bridge Visualizer", desc: "Cross-chain routing" },
+    ],
+  },
+  {
+    label: "Compute Ecosystem",
+    items: [
+      { href: "#console", label: "Compute Console", desc: "Run an inference job" },
+      { href: "#suppliers", label: "Supplier Registry", desc: "Become a node operator" },
+      { href: "#marketplace", label: "Model Marketplace", desc: "Browse AI models" },
+      { href: "#governance", label: "DAO Governance", desc: "Proposals & voting" },
+    ],
+  },
+];
+
+// Mobile: flattened list with category labels
+const MOBILE_NETWORK = NETWORK_GROUPS.flatMap((g) => [
+  { label: g.label, isHeader: true },
+  ...g.items.map((i) => ({ ...i, isHeader: false })),
+]);
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -49,6 +92,49 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
+
+          {/* Network dropdown — surfaces the 10 new sections */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                className="group inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-white/5"
+              >
+                <Radio className="size-3.5 text-pulsar-cyan" />
+                Network
+                <ChevronDown className="size-3.5 transition-transform group-data-[state=open]:rotate-180" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              className="w-[420px] border-white/10 bg-cosmos/95 p-2 backdrop-blur-xl"
+              sideOffset={8}
+            >
+              {NETWORK_GROUPS.map((group, gi) => (
+                <div key={group.label}>
+                  {gi > 0 && <DropdownMenuSeparator className="my-2 bg-white/5" />}
+                  <DropdownMenuLabel className="px-2 text-xs font-semibold uppercase tracking-widest text-pulsar-cyan">
+                    {group.label}
+                  </DropdownMenuLabel>
+                  {group.items.map((item) => (
+                    <DropdownMenuItem asChild key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="flex flex-col gap-0.5 rounded-md px-2 py-2 hover:bg-white/5 hover:cursor-pointer"
+                      >
+                        <span className="text-sm font-medium text-foreground">
+                          {item.label}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {item.desc}
+                        </span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </div>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Right cluster */}
@@ -77,13 +163,13 @@ export function Nav() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-80 border-l border-white/5 bg-cosmos/95 p-6"
+              className="w-80 overflow-y-auto border-l border-white/5 bg-cosmos/95 p-6"
             >
               <div className="mb-6 flex items-center gap-2.5">
                 <img src={asset("/pulsar.svg")} alt="Pulsar logo" className="h-8 w-8" />
                 <span className="font-display text-xl font-bold">Pulsar</span>
               </div>
-              <nav className="flex flex-col gap-1" aria-label="Mobile">
+              <nav className="flex flex-col gap-0.5" aria-label="Mobile">
                 {NAV_LINKS.map((l) => (
                   <SheetClose asChild key={l.href}>
                     <Link
@@ -94,6 +180,34 @@ export function Nav() {
                     </Link>
                   </SheetClose>
                 ))}
+
+                <div className="mt-4 mb-1 px-3 text-xs font-semibold uppercase tracking-widest text-pulsar-cyan">
+                  Network
+                </div>
+                {MOBILE_NETWORK.map((item, i) =>
+                  item.isHeader ? (
+                    <div
+                      key={`h-${i}`}
+                      className="mt-3 mb-1 px-3 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/70"
+                    >
+                      {item.label}
+                    </div>
+                  ) : (
+                    <SheetClose asChild key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="flex flex-col rounded-md px-3 py-2 hover:bg-white/5"
+                      >
+                        <span className="text-sm font-medium text-foreground">
+                          {item.label}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          {item.desc}
+                        </span>
+                      </Link>
+                    </SheetClose>
+                  )
+                )}
               </nav>
               <div className="mt-6 flex flex-col gap-3">
                 <SheetClose asChild>

@@ -17,6 +17,19 @@ const EXPLORE = [
   { href: "#staking", label: "Staking" },
 ];
 
+const NETWORK = [
+  { href: "#console", label: "Compute Console" },
+  { href: "#suppliers", label: "Supplier Registry" },
+  { href: "#marketplace", label: "Model Marketplace" },
+  { href: "#pulse", label: "Network Pulse" },
+  { href: "#oracle", label: "Pricing Oracle" },
+  { href: "#vesting", label: "Vesting Calendar" },
+  { href: "#burn", label: "Burn Tracker" },
+  { href: "#metrics", label: "Token Metrics" },
+  { href: "#bridge", label: "Bridge" },
+  { href: "#governance", label: "DAO Governance" },
+];
+
 const RESOURCES = [
   { href: SOCIALS.docs, label: "Docs", external: true },
   { href: IS_LIVE ? `${BASE_EXPLORER}/address/${PULSAR_TOKEN}` : BASE_EXPLORER, label: "Basescan", external: true },
@@ -35,7 +48,7 @@ export function Footer() {
     <footer className="mt-auto border-t border-white/5 bg-cosmos/80 backdrop-blur">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* top grid */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
@@ -90,6 +103,22 @@ export function Footer() {
                 {l.label}
                 {l.external && <ExternalLink className="size-3" />}
               </a>
+            ))}
+          </nav>
+
+          {/* Network */}
+          <nav aria-label="Network" className="flex flex-col gap-3">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              Network
+            </h3>
+            {NETWORK.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm text-foreground/80 transition-colors hover:text-pulsar-cyan"
+              >
+                {l.label}
+              </Link>
             ))}
           </nav>
 
