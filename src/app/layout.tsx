@@ -37,7 +37,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pulsarcompute.xyz"),
+  metadataBase: new URL("https://devtechedge.github.io/pulsar"),
   title: {
     default: "Pulsar — The Signal Layer for Decentralized AI Compute",
     template: "%s · Pulsar",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "Pulsar — The Signal Layer for Decentralized AI Compute",
     description:
       "Pay $PULSAR to run AI inference. Earn $PULSAR by supplying GPU power. Deflationary by design, on Base.",
-    url: "https://pulsarcompute.xyz",
+    url: "https://devtechedge.github.io/pulsar",
     siteName: "Pulsar",
     type: "website",
     locale: "en_US",
@@ -74,8 +74,8 @@ export const metadata: Metadata = {
     creator: "@pulsarcompute",
   },
   icons: {
-    icon: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "favicon.svg",
+    apple: "favicon.svg",
   },
   robots: { index: true, follow: true },
 };
