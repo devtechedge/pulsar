@@ -34,11 +34,11 @@ Pay `$PULSAR` to run AI inference. Earn by supplying GPU power. Deflationary by 
 
 | Hero + 3D neutron star | How it works |
 |:---:|:---:|
-| ![Hero](docs/screenshots/01-hero.png) | ![How it works](docs/screenshots/02-how-it-works.png) |
+| ![Hero](docs/screenshots/Screenshot%202026-07-27%20042906.png) | ![How it works](docs/screenshots/Screenshot%202026-07-27%20042925.png) |
 
 | Tokenomics | Live network pulse |
 |:---:|:---:|
-| ![Tokenomics](docs/screenshots/03-tokenomics.png) | ![Network](docs/screenshots/04-network-pulse.png) |
+| ![Tokenomics](docs/screenshots/Screenshot%202026-07-27%20042931.png) | ![Network](docs/screenshots/Screenshot%202026-07-27%20042955.png) |
 
 ## Features
 
