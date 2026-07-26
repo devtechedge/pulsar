@@ -1,15 +1,6 @@
 <div align="center">
 
-<table>
-<tr>
-<td><img src="public/pulsar.svg" width="64" height="64" alt="Pulsar logo" /></td>
-<td>
-
-# PULSAR
-
-</td>
-</tr>
-</table>
+# <img src="public/pulsar.svg" width="48" height="48" alt="Pulsar logo" /> PULSAR
 
 **The signal layer for decentralized AI compute**
 
