@@ -1,8 +1,9 @@
 "use client";
 
-import { http, createConfig, WagmiConfig, type CreateConfigParameters } from "wagmi";
+import { http, type Config } from "wagmi";
 import { base, baseSepolia } from "wagmi/chains";
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { ZERO_ADDRESS, isConfiguredAddress } from "./validation";
 
 /**
  * Wagmi + RainbowKit config for Pulsar.
@@ -16,7 +17,6 @@ export const chains = [base, baseSepolia] as const;
 
 export const config = getDefaultConfig({
   appName: "Pulsar",
-  // @ts-expect-error RainbowKit accepts single chain or array
   chains: chains,
   projectId,
   ssr: true,
@@ -29,10 +29,7 @@ export const config = getDefaultConfig({
         "https://sepolia.base.org"
     ),
   },
-}) as unknown as CreateConfigParameters;
-
-// re-export for convenience
-export type { WagmiConfig };
+}) as Config;
 
 // ---------------------------------------------------------------------------
 // Contract addresses (populated from env, with placeholder zero addresses
@@ -40,20 +37,16 @@ export type { WagmiConfig };
 // ---------------------------------------------------------------------------
 
 export const PULSAR_TOKEN =
-  process.env.NEXT_PUBLIC_PULSAR_TOKEN ||
-  "0x0000000000000000000000000000000000000000";
+  process.env.NEXT_PUBLIC_PULSAR_TOKEN || ZERO_ADDRESS;
 
 export const PULSAR_STAKING =
-  process.env.NEXT_PUBLIC_PULSAR_STAKING ||
-  "0x0000000000000000000000000000000000000000";
+  process.env.NEXT_PUBLIC_PULSAR_STAKING || ZERO_ADDRESS;
 
 export const UNISWAP_V2_PAIR =
-  process.env.NEXT_PUBLIC_UNISWAP_V2_PAIR ||
-  "0x0000000000000000000000000000000000000000";
+  process.env.NEXT_PUBLIC_UNISWAP_V2_PAIR || ZERO_ADDRESS;
 
 /** True when a real deployed token address has been provided. */
-export const IS_LIVE =
-  PULSAR_TOKEN !== "0x0000000000000000000000000000000000000000";
+export const IS_LIVE = isConfiguredAddress(PULSAR_TOKEN);
 
 export const BASE_CHAIN_ID = base.id;
 export const BASE_CHAIN = base;
