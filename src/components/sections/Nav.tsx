@@ -56,9 +56,13 @@ const NETWORK_GROUPS = [
 ];
 
 // Mobile: flattened list with category labels
-const MOBILE_NETWORK = NETWORK_GROUPS.flatMap((g) => [
-  { label: g.label, isHeader: true },
-  ...g.items.map((i) => ({ ...i, isHeader: false })),
+type MobileNetworkItem =
+  | { label: string; isHeader: true }
+  | { label: string; isHeader: false; href: string; desc: string };
+
+const MOBILE_NETWORK: MobileNetworkItem[] = NETWORK_GROUPS.flatMap((g) => [
+  { label: g.label, isHeader: true as const },
+  ...g.items.map((i) => ({ ...i, isHeader: false as const })),
 ]);
 
 export function Nav() {

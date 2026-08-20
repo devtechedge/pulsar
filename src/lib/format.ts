@@ -10,7 +10,7 @@ const compact = new Intl.NumberFormat("en-US", {
 });
 
 const full = new Intl.NumberFormat("en-US", {
-  grouping: true,
+  useGrouping: true,
 });
 
 /** Compact number, e.g. 1.2B, 350M, 12.5M. */

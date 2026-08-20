@@ -4,6 +4,7 @@
   "buildCommand": "next build",
   "installCommand": "bun install",
   "devCommand": "next dev",
+  "bunVersion": "1.x",
   "regions": ["sfo1", "iad1"],
   "headers": [
     {
