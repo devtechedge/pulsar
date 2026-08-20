@@ -20,6 +20,7 @@ export function Hero() {
   return (
     <section
       id="top"
+      data-testid="hero"
       className="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl items-center overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
     >
       {/* Mobile background glow — multi-layer diffuse nebula that blends into the page.

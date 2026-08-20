@@ -630,6 +630,7 @@ export function NetworkPulse() {
   return (
     <section
       id="pulse"
+      data-testid="network-pulse"
       className="mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8"
     >
       <motion.div

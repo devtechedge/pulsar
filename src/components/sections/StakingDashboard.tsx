@@ -184,7 +184,7 @@ export function StakingDashboard() {
   const busy = isWriting || isConfirming;
 
   return (
-    <section id="staking" className="mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
+    <section id="staking" data-testid="staking-dashboard" className="mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
       <SectionHeading
         eyebrow="Staking"
         title="Stake $PULSAR, earn $PULSAR"

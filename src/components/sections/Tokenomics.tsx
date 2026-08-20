@@ -65,7 +65,7 @@ const burnedPct = ((TOKENOMICS.burnedSupply / TOKENOMICS.totalSupply) * 100).toF
 
 export function Tokenomics() {
   return (
-    <section id="tokenomics" className="mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
+    <section id="tokenomics" data-testid="tokenomics" className="mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
       <SectionHeading
         eyebrow="Tokenomics"
         title="Built to accrue value as usage grows"
