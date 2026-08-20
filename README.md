@@ -6,6 +6,7 @@
 
 Pay `$PULSAR` to run AI inference. Earn by supplying GPU power. Deflationary by design.
 
+[![CI](https://github.com/devtechedge/pulsar/actions/workflows/ci.yml/badge.svg)](https://github.com/devtechedge/pulsar/actions/workflows/ci.yml)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-black?logo=github)](https://devtechedge.github.io/pulsar/)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -66,6 +67,14 @@ forge build && forge test -vv
 ```
 
 Copy `.env.example` → `.env.local` and fill the four public vars when you are ready to point the UI at a live contract address.
+
+```bash
+bun run test          # unit tests (format, mock data, address guards)
+bun run typecheck
+bun run test:e2e      # Playwright Chromium smokes
+```
+
+See [`SECURITY.md`](./SECURITY.md) for the threat model.
 
 ## Smart Contracts
 
