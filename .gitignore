@@ -65,6 +65,12 @@ db/*.db-wal
 # Examples / scratch
 /examples/
 
+# Tests
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
+
 # Foundry / Solidity artifacts
 contracts/lib/
 contracts/cache/
