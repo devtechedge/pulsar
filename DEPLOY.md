@@ -13,7 +13,7 @@ Two ways to host PULSAR live. Pick one.
 | Next.js Image opt | Yes | No (uses `unoptimized: true`) |
 | Smart contract deploy | Same on both | Same on both |
 
-**Recommendation:** Use **GitHub Pages** if this is a portfolio piece — it lives in your repo, costs nothing, and recruiters see the workflow. Use **Vercel** if you plan to add server-side features later (API routes, ISR, etc.).
+**Recommendation:** Use **GitHub Pages** if this is a portfolio piece — it lives in your repo, costs nothing, and visitors see the workflow. Use **Vercel** if you plan to add server-side features later (API routes, ISR, etc.).
 
 ---
 
