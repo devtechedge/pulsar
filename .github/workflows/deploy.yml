@@ -12,10 +12,10 @@
 #      https://<username>.github.io/<repo-name>/
 #
 # Optional env vars (set in Repo → Settings → Secrets and variables → Actions):
-#   NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID  — required for the wallet modal to list wallets
-#   NEXT_PUBLIC_PULSAR_TOKEN              — deployed token address (skip for preview)
-#   NEXT_PUBLIC_PULSAR_STAKING            — deployed staking contract address
-#   NEXT_PUBLIC_UNISWAP_V2_PAIR           — Uniswap V2 pair on Base
+#   NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID  - required for the wallet modal to list wallets
+#   NEXT_PUBLIC_PULSAR_TOKEN              - deployed token address (skip for preview)
+#   NEXT_PUBLIC_PULSAR_STAKING            - deployed staking contract address
+#   NEXT_PUBLIC_UNISWAP_V2_PAIR           - Uniswap V2 pair on Base
 
 name: Deploy to GitHub Pages
 

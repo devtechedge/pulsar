@@ -605,7 +605,7 @@ export function NetworkPulse() {
     return () => clearInterval(id);
   }, []);
 
-  // KPI ticker — gently fluctuate values every 1.5s
+  // KPI ticker - gently fluctuate values every 1.5s
   useEffect(() => {
     const id = setInterval(() => {
       const rng = mulberry32(Date.now() & 0xffff);
@@ -642,7 +642,7 @@ export function NetworkPulse() {
         <SectionHeading
           eyebrow="Live Network"
           title="Every compute job is a pulse"
-          subtitle="Every compute job on Pulsar is a pulse of intelligence traveling from consumer to supplier and back. The visualization below shows the live network in action — each pulse is a real inference job settled in $PULSAR. Watch the network breathe."
+          subtitle="Every compute job on Pulsar is a pulse of intelligence traveling from consumer to supplier and back. The visualization below shows the live network in action - each pulse is a real inference job settled in $PULSAR. Watch the network breathe."
         />
 
         {/* KPI strip */}
@@ -721,7 +721,7 @@ export function NetworkPulse() {
           <div className="text-sm leading-relaxed text-muted-foreground">
             <span className="font-semibold text-foreground">This is a simulated live preview.</span>{" "}
             At mainnet launch, every pulse you see will correspond to a real inference job settled
-            on-chain in $PULSAR — verifiable via the Pulsar Explorer. The data shown here mirrors
+            on-chain in $PULSAR - verifiable via the Pulsar Explorer. The data shown here mirrors
             the real network&apos;s structure (consumer → supplier → core → settled) but uses
             deterministic mock traffic.
           </div>

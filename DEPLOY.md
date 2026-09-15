@@ -13,11 +13,11 @@ Two ways to host PULSAR live. Pick one.
 | Next.js Image opt | Yes | No (uses `unoptimized: true`) |
 | Smart contract deploy | Same on both | Same on both |
 
-**Recommendation:** Use **GitHub Pages** if this is a portfolio piece — it lives in your repo, costs nothing, and visitors see the workflow. Use **Vercel** if you plan to add server-side features later (API routes, ISR, etc.).
+**Recommendation:** Use **GitHub Pages** if this is a portfolio piece - it lives in your repo, costs nothing, and visitors see the workflow. Use **Vercel** if you plan to add server-side features later (API routes, ISR, etc.).
 
 ---
 
-## Option A — GitHub Pages (recommended for portfolio)
+## Option A - GitHub Pages (recommended for portfolio)
 
 ### One-time setup (~3 min)
 
@@ -30,7 +30,7 @@ Two ways to host PULSAR live. Pick one.
 2. **Enable GitHub Actions deployment**:
    - Repo → **Settings → Pages**
    - Under "Build and deployment" → **Source:** `GitHub Actions`
-   - (You don't need to pick a branch — the workflow handles it.)
+   - (You don't need to pick a branch - the workflow handles it.)
 
 3. **Grant workflow write access**:
    - Repo → **Settings → Actions → General**
@@ -53,9 +53,9 @@ Every `git push` to `main` triggers a rebuild (~2-3 min).
 ### Optional: add contract addresses when you deploy them
 
 When the smart contracts are live on Base, add 3 more secrets the same way:
-- `NEXT_PUBLIC_PULSAR_TOKEN` — deployed token address
-- `NEXT_PUBLIC_PULSAR_STAKING` — deployed staking address
-- `NEXT_PUBLIC_UNISWAP_V2_PAIR` — Uniswap V2 pair on Base
+- `NEXT_PUBLIC_PULSAR_TOKEN` - deployed token address
+- `NEXT_PUBLIC_PULSAR_STAKING` - deployed staking address
+- `NEXT_PUBLIC_UNISWAP_V2_PAIR` - Uniswap V2 pair on Base
 
 The site flips from "Pre-launch" to "Live" automatically on the next deploy.
 
@@ -63,7 +63,7 @@ The site flips from "Pre-launch" to "Live" automatically on the next deploy.
 
 - `next.config.ts` checks `process.env.GITHUB_PAGES === "1"`. When true (set by the workflow), it switches to `output: 'export'` and applies `basePath` + `assetPrefix`.
 - `src/lib/asset.ts` prefixes `<img>` and metadata icon paths with `NEXT_PUBLIC_BASE_PATH` so they work under the subpath.
-- `public/.nojekyll` (committed) tells GitHub Pages not to process the `_next/` folder with Jekyll — without it, files starting with `_` get dropped.
+- `public/.nojekyll` (committed) tells GitHub Pages not to process the `_next/` folder with Jekyll - without it, files starting with `_` get dropped.
 - The workflow uses the official `actions/configure-pages`, `actions/upload-pages-artifact`, and `actions/deploy-pages` v4 actions.
 
 ### Troubleshooting
@@ -75,11 +75,11 @@ The site flips from "Pre-launch" to "Live" automatically on the next deploy.
 | Site loads but assets 404 | Check `basePath` matches repo name. The workflow auto-computes it from `GITHUB_REPOSITORY`. |
 | 3D hero shows but wallet modal empty | `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` secret not set or wrong value. |
 | Want to deploy to root domain (`username.github.io`) | Create a repo named exactly `username.github.io` and push this code there. The workflow auto-detects and uses no basePath. |
-| Custom domain (e.g. `pulsarcompute.xyz`) | Repo → Settings → Pages → Custom domain → enter domain. Add CNAME at your registrar pointing to `username.github.io`. **You must also remove `basePath`** in `next.config.ts` when using a custom domain — set `BASE_PATH=""` in the workflow env or fork the workflow. |
+| Custom domain (e.g. `pulsarcompute.xyz`) | Repo → Settings → Pages → Custom domain → enter domain. Add CNAME at your registrar pointing to `username.github.io`. **You must also remove `basePath`** in `next.config.ts` when using a custom domain - set `BASE_PATH=""` in the workflow env or fork the workflow. |
 
 ---
 
-## Option B — Vercel
+## Option B - Vercel
 
 ### Steps (~5 min)
 
@@ -93,10 +93,10 @@ The site flips from "Pre-launch" to "Live" automatically on the next deploy.
    - **Install command:** `bun install` (or `npm install`)
 
 4. **Environment Variables** (only 1 required for preview mode):
-   - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` — **required** for wallet modal
-   - `NEXT_PUBLIC_PULSAR_TOKEN` — optional, for live mode
-   - `NEXT_PUBLIC_PULSAR_STAKING` — optional
-   - `NEXT_PUBLIC_UNISWAP_V2_PAIR` — optional
+   - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` - **required** for wallet modal
+   - `NEXT_PUBLIC_PULSAR_TOKEN` - optional, for live mode
+   - `NEXT_PUBLIC_PULSAR_STAKING` - optional
+   - `NEXT_PUBLIC_UNISWAP_V2_PAIR` - optional
 
 5. Click **Deploy**. Live at `https://pulsar-YOUR_USERNAME.vercel.app` in ~2 min.
 

@@ -15,7 +15,7 @@ import { TRUST } from "@/lib/contracts";
 const CARDS = [
   {
     icon: ShieldCheck,
-    title: `${TRUST.auditFirm} audit — ${TRUST.auditStatus}`,
+    title: `${TRUST.auditFirm} audit - ${TRUST.auditStatus}`,
     body: "Independent smart-contract audit covering the token, staking, and tax logic. CertiK scheduled for Phase 3 to support tier-2 CEX listings.",
     tint: "violet",
   },

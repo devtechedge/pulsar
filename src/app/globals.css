@@ -53,7 +53,7 @@
 }
 
 /* ============================================================================
-   DARK THEME (default — "Cosmos")
+   DARK THEME (default - "Cosmos")
    ========================================================================== */
 
 :root,
@@ -126,7 +126,7 @@
 .light {
   --radius: 0.875rem;
 
-  /* base canvas — warm paper, not stark white */
+  /* base canvas - warm paper, not stark white */
   --cosmos: #F4F2EE;
   --background: #F4F2EE;
   --foreground: #0F1020;
@@ -136,7 +136,7 @@
   --popover: #FFFFFF;
   --popover-foreground: #0F1020;
 
-  /* brand gradient stops — unchanged, work on both themes */
+  /* brand gradient stops - unchanged, work on both themes */
   --pulsar-violet: #7C3AED;
   --pulsar-cyan: #0891B2;
   --pulsar: #7C3AED;
@@ -240,7 +240,7 @@
 
 
   /* In light mode, override translucent white utilities to use ink-based colors
-     so existing components don't break — they get the right contrast for free. */
+     so existing components don't break - they get the right contrast for free. */
   .light .bg-white\/\[0\.02\] { background-color: rgba(15, 16, 32, 0.02) !important; }
   .light .bg-white\/\[0\.03\] { background-color: rgba(15, 16, 32, 0.03) !important; }
   .light .bg-white\/\[0\.04\] { background-color: rgba(15, 16, 32, 0.04) !important; }
@@ -252,7 +252,7 @@
   .light .border-white\/10 { border-color: rgba(15, 16, 32, 0.10) !important; }
   .light .border-white\/15 { border-color: rgba(15, 16, 32, 0.12) !important; }
   .light .border-white\/20 { border-color: rgba(15, 16, 32, 0.15) !important; }
-  /* text-white used for gradient button text — fine in both themes since buttons have colored bg */
+  /* text-white used for gradient button text - fine in both themes since buttons have colored bg */
   /* bg-cosmos already replaced via --cosmos var, but hard-coded bg-cosmos class needs override */
   .light .bg-cosmos { background-color: var(--background) !important; }
 }
@@ -299,7 +299,7 @@
       0 1px 3px -1px rgba(15, 16, 32, 0.08);
   }
 
-  /* glassmorphism v2 — richer gradient wash + mouse spotlight support */
+  /* glassmorphism v2 - richer gradient wash + mouse spotlight support */
   .glass-v2 {
     position: relative;
     background:
@@ -443,7 +443,7 @@
   }
   .animate-breathe { animation: breathe 4s ease-in-out infinite; }
 
-  /* number flip — for live counters */
+  /* number flip - for live counters */
   @keyframes flip-in {
     0%   { transform: rotateX(-90deg); opacity: 0; }
     100% { transform: rotateX(0deg); opacity: 1; }
@@ -455,7 +455,7 @@
     text-shadow: 0 0 24px rgba(139, 92, 246, 0.45);
   }
 
-  /* spotlight card — mouse-tracking radial gradient */
+  /* spotlight card - mouse-tracking radial gradient */
   .spotlight-card {
     position: relative;
     overflow: hidden;

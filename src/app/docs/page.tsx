@@ -19,7 +19,7 @@ export default function DocsPage() {
     <>
       <Background />
       <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-20">
-        {/* Background — diffuse nebula glow (no hard edges) */}
+        {/* Background - diffuse nebula glow (no hard edges) */}
         <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
           <div
             className="absolute left-1/2 top-1/3 h-[120%] w-[120%] -translate-x-1/2 rounded-full"
@@ -39,12 +39,12 @@ export default function DocsPage() {
           />
         </div>
 
-        {/* 3D Pulsar — centered, behind content (desktop only) */}
+        {/* 3D Pulsar - centered, behind content (desktop only) */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 hidden h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 opacity-50 lg:block">
           <Pulsar3D />
         </div>
 
-        {/* Top bar — logo + back button */}
+        {/* Top bar - logo + back button */}
         <div className="absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link
             href="/"
@@ -113,8 +113,8 @@ export default function DocsPage() {
             transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-xl text-base text-muted-foreground leading-relaxed sm:text-lg"
           >
-            The full Pulsar documentation — whitepaper, API reference, smart contract
-            specs, integration guides, and node operator handbook — is being assembled.
+            The full Pulsar documentation - whitepaper, API reference, smart contract
+            specs, integration guides, and node operator handbook - is being assembled.
             We're shipping it alongside the mainnet launch.
           </motion.p>
 
@@ -167,7 +167,7 @@ export default function DocsPage() {
 }
 
 /**
- * "Smooth sailing" animation — a stylized paper boat riding gentle waves.
+ * "Smooth sailing" animation - a stylized paper boat riding gentle waves.
  * Pure SVG + Framer Motion. No external assets.
  */
 function SailingAnimation() {
@@ -220,7 +220,7 @@ function SailingAnimation() {
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Paper boat — rides the wave */}
+        {/* Paper boat - rides the wave */}
         <motion.g
           animate={{
             y: [0, -4, 0, -3, 0],

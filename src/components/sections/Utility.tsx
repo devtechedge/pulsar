@@ -28,7 +28,7 @@ const CARDS: UtilityCard[] = [
   {
     icon: BrainCircuit,
     title: "Pay for AI inference",
-    body: "Every model call — LLM, image, voice, vision — is priced and settled in $PULSAR. No subscriptions, no credits, no platform lock-in.",
+    body: "Every model call - LLM, image, voice, vision - is priced and settled in $PULSAR. No subscriptions, no credits, no platform lock-in.",
     status: "LIVE",
     tint: "violet",
   },
@@ -70,7 +70,7 @@ const CARDS: UtilityCard[] = [
   {
     icon: Bot,
     title: "Agent-to-agent payments",
-    body: "Autonomous agents settle micro-transactions in $PULSAR — paying each other for data, inference, and orchestration without humans in the loop.",
+    body: "Autonomous agents settle micro-transactions in $PULSAR - paying each other for data, inference, and orchestration without humans in the loop.",
     status: "ROADMAP",
     tint: "violet",
   },
@@ -84,7 +84,7 @@ const CARDS: UtilityCard[] = [
   {
     icon: Vote,
     title: "DAO governance over compute pricing",
-    body: "Stakers propose and vote on protocol parameters — fee shares, supplier tiers, supported models — turning $PULSAR into a governance instrument.",
+    body: "Stakers propose and vote on protocol parameters - fee shares, supplier tiers, supported models - turning $PULSAR into a governance instrument.",
     status: "ROADMAP",
     tint: "violet",
   },
@@ -95,7 +95,7 @@ export function Utility() {
     <section id="utility" className="mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 md:py-32 lg:px-8">
       <SectionHeading
         eyebrow="Utility"
-        title="What $PULSAR does today — and tomorrow"
+        title="What $PULSAR does today - and tomorrow"
         subtitle="Real utility from day one. A broader compute economy over time."
       />
 

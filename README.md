@@ -34,13 +34,13 @@ Pay `$PULSAR` to run AI inference. Earn by supplying GPU power. Deflationary by 
 
 ## Features
 
-- **3D hero** — React Three Fiber neutron star with polar jets, accretion disk, and animated pulse rings
-- **Wallet connect** — wagmi v3 + RainbowKit on Base (mainnet + Sepolia fallback)
-- **Staking dashboard** — full approve → stake → unstake → claim flow with live APY reads
-- **Tokenomics visuals** — Recharts allocation donut, vesting bars, animated burned-supply counter
-- **Live network pulse** — simulated job feed, supplier map, latency & volume KPIs
-- **Trust primitives** — Basescan verification hooks, UNCX lock proof, Gnosis Safe, KYC badge
-- **Smart contracts** — `Pulsar.sol` (fixed 1B supply, tax + burn) + `PulsarStaking.sol` (Foundry + 14 tests)
+- **3D hero** - React Three Fiber neutron star with polar jets, accretion disk, and animated pulse rings
+- **Wallet connect** - wagmi v3 + RainbowKit on Base (mainnet + Sepolia fallback)
+- **Staking dashboard** - full approve → stake → unstake → claim flow with live APY reads
+- **Tokenomics visuals** - Recharts allocation donut, vesting bars, animated burned-supply counter
+- **Live network pulse** - simulated job feed, supplier map, latency & volume KPIs
+- **Trust primitives** - Basescan verification hooks, UNCX lock proof, Gnosis Safe, KYC badge
+- **Smart contracts** - `Pulsar.sol` (fixed 1B supply, tax + burn) + `PulsarStaking.sol` (Foundry + 14 tests)
 
 ## Tech Stack
 
@@ -60,7 +60,7 @@ Pay `$PULSAR` to run AI inference. Earn by supplying GPU power. Deflationary by 
 bun install
 bun run dev          # → http://localhost:3000
 
-# Optional — contracts
+# Optional - contracts
 cd contracts
 forge install OpenZeppelin/openzeppelin-contracts --no-commit
 forge build && forge test -vv
@@ -82,4 +82,4 @@ See [`contracts/`](./contracts) for the full Foundry project, ABIs, deployment s
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).

@@ -41,7 +41,7 @@ export function Community() {
       <SectionHeading
         eyebrow="Community"
         title="Join the network"
-        subtitle="Builders, suppliers, and validators — pick your lane."
+        subtitle="Builders, suppliers, and validators - pick your lane."
       />
 
       <div className="mt-16 grid gap-6 md:grid-cols-3">

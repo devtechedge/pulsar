@@ -36,7 +36,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   // SSR-safe: render as "dark" on server, hydrate to actual theme on mount.
   const theme = useSyncExternalStore(subscribeTheme, readThemeClient, readThemeServer);
 
-  // Re-apply theme after hydration — React 19 strips script-applied classes
+  // Re-apply theme after hydration - React 19 strips script-applied classes
   // during hydration commit, so we need to re-set them in useEffect.
   // This is safe because it runs after the initial paint.
   useEffect(() => {

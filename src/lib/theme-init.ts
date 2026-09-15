@@ -1,5 +1,5 @@
 /**
- * Inline script — runs before React hydrates to prevent FOUC (flash of unstyled content).
+ * Inline script - runs before React hydrates to prevent FOUC (flash of unstyled content).
  * Inject this as a string into <head> via dangerouslySetInnerHTML.
  *
  * Reads localStorage['pulsar-theme'] and applies the .dark / .light class to <html>

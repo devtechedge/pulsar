@@ -229,7 +229,7 @@ function KpiTile({
 export function TokenMetricsDashboard() {
   const { address } = useAccount();
 
-  // On-chain reads — only when IS_LIVE
+  // On-chain reads - only when IS_LIVE
   const liveCalls = IS_LIVE && PULSAR_TOKEN
     ? [
         { address: PULSAR_TOKEN as `0x${string}`, abi: erc20Abi, functionName: "totalSupply" as const },
@@ -250,7 +250,7 @@ export function TokenMetricsDashboard() {
   const circulating = totalSupply - burned - 150_000_000 - 100_000_000 - 200_000_000 - 137_500_000;
   const treasury = 100_000_000;
 
-  // Burn feed state — initial seeded burns, prepend new every 6s
+  // Burn feed state - initial seeded burns, prepend new every 6s
   const [burns, setBurns] = useState<Burn[]>(() => genInitialBurns(8));
   const [newBurnId, setNewBurnId] = useState<string | null>(null);
 
@@ -322,7 +322,7 @@ export function TokenMetricsDashboard() {
         className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground md:text-base"
       >
         Every $PULSAR metric is verifiable on-chain. The dashboard below pulls
-        live data from Basescan — circulating supply, top holders, transfer
+        live data from Basescan - circulating supply, top holders, transfer
         volume, and the public burn address. No private dashboards, no opaque
         market-making, no surprises.
       </motion.p>
@@ -340,7 +340,7 @@ export function TokenMetricsDashboard() {
               IS_LIVE ? "bg-emerald-300" : "bg-amber-300"
             }`}
           />
-          {IS_LIVE ? "Live on-chain data" : "Preview data — contract deploys at TGE"}
+          {IS_LIVE ? "Live on-chain data" : "Preview data - contract deploys at TGE"}
         </Badge>
       </div>
 
@@ -666,7 +666,7 @@ export function TokenMetricsDashboard() {
         </motion.div>
       </div>
 
-      {/* ---------------- BOTTOM STRIP — KPI TILES ---------------- */}
+      {/* ---------------- BOTTOM STRIP - KPI TILES ---------------- */}
       <div className="mt-6 grid gap-3 grid-cols-2 lg:grid-cols-4">
         <KpiTile
           icon={Activity}

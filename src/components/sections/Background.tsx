@@ -4,7 +4,7 @@ import { useMemo, useState, useEffect } from "react";
 
 /**
  * Fixed cosmic backdrop: starfield, nebula blobs, faint grid.
- * Pure CSS/SVG — no canvas. Pointer-events disabled.
+ * Pure CSS/SVG - no canvas. Pointer-events disabled.
  * Theme-aware: gold dust + lighter nebulas in light mode.
  */
 
@@ -57,7 +57,7 @@ export function Background() {
       aria-hidden
       className="fixed inset-0 -z-10 pointer-events-none overflow-hidden bg-background"
     >
-      {/* violet nebula — top-left */}
+      {/* violet nebula - top-left */}
       <div
         className="absolute -top-40 -left-40 h-[60vh] w-[60vh] rounded-full animate-nebula"
         style={{
@@ -67,7 +67,7 @@ export function Background() {
           filter: "blur(20px)",
         }}
       />
-      {/* cyan nebula — bottom-right */}
+      {/* cyan nebula - bottom-right */}
       <div
         className="absolute -bottom-40 -right-40 h-[55vh] w-[55vh] rounded-full animate-nebula"
         style={{
@@ -92,7 +92,7 @@ export function Background() {
         }}
       />
 
-      {/* starfield — gold dust in light mode */}
+      {/* starfield - gold dust in light mode */}
       {stars.map((s, i) => (
         <span
           key={i}

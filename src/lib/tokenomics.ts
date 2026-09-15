@@ -1,4 +1,4 @@
-/** Pure tokenomics constants — no wagmi, safe for unit tests. */
+/** Pure tokenomics constants - no wagmi, safe for unit tests. */
 
 export const TOKENOMICS = {
   totalSupply: 1_000_000_000,

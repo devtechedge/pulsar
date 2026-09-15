@@ -1,5 +1,5 @@
 /**
- * basePath helper — prefixes asset URLs when deployed under a subpath
+ * basePath helper - prefixes asset URLs when deployed under a subpath
  * (e.g. GitHub Pages: username.github.io/pulsar/).
  *
  * Next.js handles <Link> and next/image automatically, but raw <img src="/foo">,

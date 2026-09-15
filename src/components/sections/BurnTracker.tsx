@@ -313,7 +313,7 @@ function BurnHistoryChart({ data }: { data: { month: string; cumulative: number;
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <div>
           <h3 className="font-display text-lg font-bold">Cumulative burn history</h3>
-          <p className="mt-1 text-sm text-muted-foreground">$PULSAR removed from supply — last 12 months</p>
+          <p className="mt-1 text-sm text-muted-foreground">$PULSAR removed from supply - last 12 months</p>
         </div>
         <Badge className="border-pulsar-cyan/30 bg-pulsar-cyan/10 text-pulsar-cyan">
           <Flame className="size-3" /> 12.5M total
@@ -432,7 +432,7 @@ function DeflationCurveChart({ data }: { data: { year: string; withBurn: number;
       </div>
       <p className="mt-3 text-xs text-muted-foreground">
         At the current burn rate of ~2.4% per year, total supply is projected to fall from ~987.5M to
-        ~870M over the next 5 years — permanently deflationary.
+        ~870M over the next 5 years - permanently deflationary.
       </p>
     </Card>
   );
@@ -498,7 +498,7 @@ function InflationComparisonChart() {
       <div className="mt-3 flex items-center gap-2 rounded-lg border border-pulsar-cyan/20 bg-pulsar-cyan/[0.05] px-3 py-2 text-xs">
         <TrendingDown className="size-3.5 text-pulsar-cyan" />
         <span className="text-muted-foreground">
-          Pulsar is the only asset here with a <span className="font-semibold text-pulsar-cyan">negative</span> inflation rate — supply shrinks every year.
+          Pulsar is the only asset here with a <span className="font-semibold text-pulsar-cyan">negative</span> inflation rate - supply shrinks every year.
         </span>
       </div>
     </Card>
@@ -537,7 +537,7 @@ function BurnTxFeed() {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="font-display text-lg font-bold">Recent burn transactions</h3>
-          <p className="mt-1 text-sm text-muted-foreground">Latest on-chain burns — every entry verifiable on Basescan</p>
+          <p className="mt-1 text-sm text-muted-foreground">Latest on-chain burns - every entry verifiable on Basescan</p>
         </div>
         <Badge className="border-emerald-400/30 bg-emerald-400/10 text-emerald-300">
           <span className="mr-1 inline-block size-1.5 animate-pulse rounded-full bg-emerald-400" />
@@ -608,7 +608,7 @@ export function BurnTracker() {
         <SectionHeading
           eyebrow="Deflationary Mechanics"
           title="Watch supply shrink in real time"
-          subtitle="Every quarter, protocol fees accumulated in $PULSAR are used to buy back tokens from the open market and burn them permanently. This creates sustained deflationary pressure that scales with network usage. The tracker below is fully on-chain — every burn is verifiable on Basescan."
+          subtitle="Every quarter, protocol fees accumulated in $PULSAR are used to buy back tokens from the open market and burn them permanently. This creates sustained deflationary pressure that scales with network usage. The tracker below is fully on-chain - every burn is verifiable on Basescan."
         />
 
         {/* Top row: 3 cards */}

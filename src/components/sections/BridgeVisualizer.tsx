@@ -218,7 +218,7 @@ function CosmosMap({
           const path = `M ${base.x} ${base.y} Q ${midX} ${midY} ${c.x} ${c.y}`;
           const pathId = `path-${c.id}`;
 
-          // idle traveling dot — slow ambient pulse
+          // idle traveling dot - slow ambient pulse
           return (
             <g key={pathId}>
               <path
@@ -860,7 +860,7 @@ export function BridgeVisualizer() {
         <SectionHeading
           eyebrow="Cross-Chain"
           title="$PULSAR bridges to every major chain"
-          subtitle="$PULSAR is natively on Base but will bridge to all major EVM chains via LayerZero. Liquidity is bootstrapped on each chain through the protocol treasury. The visualizer below shows the bridge in action — try it yourself."
+          subtitle="$PULSAR is natively on Base but will bridge to all major EVM chains via LayerZero. Liquidity is bootstrapped on each chain through the protocol treasury. The visualizer below shows the bridge in action - try it yourself."
         />
 
         <div className="mt-14 grid gap-6 lg:grid-cols-5">

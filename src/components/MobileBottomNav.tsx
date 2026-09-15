@@ -12,7 +12,7 @@ const ITEMS = [
 ];
 
 /**
- * Mobile bottom navigation — surfaces key actions without the hamburger menu.
+ * Mobile bottom navigation - surfaces key actions without the hamburger menu.
  * Hidden on desktop (lg+).
  */
 export function MobileBottomNav() {

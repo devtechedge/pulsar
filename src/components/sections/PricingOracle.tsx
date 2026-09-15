@@ -202,7 +202,7 @@ const PRICE_24H = (() => {
 })();
 
 // ---------------------------------------------------------------------------
-// Comparison table data — centralized providers (USD per workload unit)
+// Comparison table data - centralized providers (USD per workload unit)
 // Prices are roughly competitive with public list rates as of late 2024.
 // ---------------------------------------------------------------------------
 
@@ -277,7 +277,7 @@ export function PricingOracle() {
     setExtraId(nextMeta.extraOptions?.[1]?.id ?? nextMeta.extraOptions?.[0]?.id ?? "");
   }
 
-  // Live rate random walk (±5%) — interval ticks every 3s; resets on tab switch
+  // Live rate random walk (±5%) - interval ticks every 3s; resets on tab switch
   const baseRate = meta.ratePulPerUnit;
   const [liveMult, setLiveMult] = useState<number>(1.0);
   const [prevMult, setPrevMult] = useState<number>(1.0);
@@ -306,7 +306,7 @@ export function PricingOracle() {
     liveMult > prevMult + 0.0001 ? "up" : liveMult < prevMult - 0.0001 ? "down" : "flat";
   const ratePct = ((liveMult - 1) * 100);
 
-  // Live chart state — append new point every 3s to mirror live rate
+  // Live chart state - append new point every 3s to mirror live rate
   const [chartData, setChartData] = useState(PRICE_24H);
   useEffect(() => {
     const id = setInterval(() => {
@@ -361,7 +361,7 @@ export function PricingOracle() {
       <SectionHeading
         eyebrow="Pricing Oracle"
         title="Transparent compute pricing, live"
-        subtitle="See how much $PULSAR a job costs — compared against the cloud."
+        subtitle="See how much $PULSAR a job costs - compared against the cloud."
       />
 
       <motion.p
@@ -374,7 +374,7 @@ export function PricingOracle() {
         Pulsar&apos;s compute oracle sets prices dynamically based on GPU supply
         and demand across the network. Quotes are transparent, on-chain, and
         update in real time. Below is a live preview of pricing across common AI
-        workloads — compared against centralized alternatives.
+        workloads - compared against centralized alternatives.
       </motion.p>
 
       <motion.div
@@ -402,7 +402,7 @@ export function PricingOracle() {
           </div>
 
           <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-            {/* LEFT — workload form */}
+            {/* LEFT - workload form */}
             <div className="glass glass-hover rounded-2xl p-5 md:p-7">
               <div className="mb-5 flex items-center gap-2.5">
                 <div className="flex size-9 items-center justify-center rounded-lg bg-pulsar-violet/15 text-pulsar-violet ring-1 ring-pulsar-violet/30">
@@ -514,7 +514,7 @@ export function PricingOracle() {
               ))}
             </div>
 
-            {/* RIGHT — live cost card */}
+            {/* RIGHT - live cost card */}
             <div className="glass glass-hover flex flex-col rounded-2xl p-5 md:p-7">
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
@@ -682,7 +682,7 @@ export function PricingOracle() {
             <Activity className="size-4.5 text-pulsar-violet" />
             <div>
               <h3 className="font-display text-lg font-bold">Live network pricing</h3>
-              <p className="text-[11px] text-muted-foreground">$PULSAR per 1M tokens — last 24h</p>
+              <p className="text-[11px] text-muted-foreground">$PULSAR per 1M tokens - last 24h</p>
             </div>
           </div>
           <div className="flex items-center gap-2 text-[11px]">

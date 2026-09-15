@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 /**
- * Next.js config — supports BOTH Vercel and GitHub Pages from the same codebase.
+ * Next.js config - supports BOTH Vercel and GitHub Pages from the same codebase.
  *
  * Vercel:        `next build` (default). No standalone output (Vercel rejects nft.json).
  * GitHub Pages:  Set env `GITHUB_PAGES=1` and `BASE_PATH=/your-repo-name`.

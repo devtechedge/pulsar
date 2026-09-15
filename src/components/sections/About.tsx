@@ -16,7 +16,7 @@ export function About() {
       <SectionHeading
         eyebrow="About"
         title="The problem and the pulse"
-        subtitle="AI compute is locked behind a few cloud giants. Pulsar opens it up — and settles every job on-chain."
+        subtitle="AI compute is locked behind a few cloud giants. Pulsar opens it up - and settles every job on-chain."
       />
 
       <div className="mt-16 grid gap-6 lg:grid-cols-2">
@@ -44,15 +44,15 @@ export function About() {
               always pays.
             </p>
             <p>
-              For teams shipping AI products, this is more than an annoyance — it
+              For teams shipping AI products, this is more than an annoyance - it
               is structural leverage working against them. A single provider can
               deprecate an instance class, throttle throughput, or hike pricing
               with thirty days notice. There is no fallback, no transparency, and
               no recourse. Builders absorb the risk and pass the cost to users.
             </p>
             <p>
-              Worse, idle GPU capacity sits everywhere — in gaming rigs, in
-              research labs, in data centers off-peak — but it cannot reach the
+              Worse, idle GPU capacity sits everywhere - in gaming rigs, in
+              research labs, in data centers off-peak - but it cannot reach the
               market. The plumbing to discover, price, and settle compute jobs
               between strangers simply does not exist in the centralized stack.
             </p>
@@ -81,7 +81,7 @@ export function About() {
               settled atomically in $PULSAR for every completed job.
             </p>
             <p>
-              The token is the settlement layer — not a voucher, not a points
+              The token is the settlement layer - not a voucher, not a points
               system. Every model call is a real transaction: a consumer pays,
               a supplier is paid, and a small protocol fee is routed to the
               treasury. No middleman skims, no platform holds the float.

@@ -253,7 +253,7 @@ function bakeOutput(m: Model): { text?: string; image?: boolean; voice?: boolean
   // Text / Code / Vision → 3-sentence response
   const responses: Record<string, string> = {
     "llama-3.1-70b":
-      "A decentralized AI compute network settles payments by routing inference requests through a peer-to-peer supplier graph, where each job carries a cryptographic commitment. When the consumer signs the request, the protocol locks the agreed $PULSAR fee in a non-custodial escrow that the supplier can claim only after producing a verifiable output. Settlement finality happens on Base within seconds, with the supplier's stake slashed if the result fails validation — making every payment trustless and auditable on-chain.",
+      "A decentralized AI compute network settles payments by routing inference requests through a peer-to-peer supplier graph, where each job carries a cryptographic commitment. When the consumer signs the request, the protocol locks the agreed $PULSAR fee in a non-custodial escrow that the supplier can claim only after producing a verifiable output. Settlement finality happens on Base within seconds, with the supplier's stake slashed if the result fails validation - making every payment trustless and auditable on-chain.",
     "mistral-large-2":
       "PULSAR is a deflationary utility token on Base that powers a decentralized compute marketplace for open-weight AI models. Its fixed 1B supply is reduced through quarterly buyback-and-burn events funded by protocol fees, creating sustained scarcity as usage grows. The product brief should emphasize transparency (on-chain vesting, locked liquidity), real revenue (compute jobs settled in $PULSAR), and a clear roadmap from DEX launch to a full model marketplace.",
     "qwen-2.5-72b":
@@ -263,14 +263,14 @@ function bakeOutput(m: Model): { text?: string; image?: boolean; voice?: boolean
     "starcoder-2":
       "import { useReadContract } from 'wagmi';\nimport { stakingAbi, PULSAR } from '@/lib/contracts';\n\nexport function useEarned(addr) {\n  return useReadContract({\n    address: PULSAR.staking,\n    abi: stakingAbi,\n    functionName: 'earned',\n    args: [addr],\n  });\n}",
     "llava-1.6-34b":
-      "The image shows a radiant violet orb centered against a deep cosmic background, with a halo of cyan particles orbiting in concentric rings. Bright streaks of light appear to emit from the orb's poles, suggesting energy jets, while smaller glowing nodes drift along the orbital paths. The overall composition evokes a pulsar or neutron star — a dense, high-energy core broadcasting signals across space.",
+      "The image shows a radiant violet orb centered against a deep cosmic background, with a halo of cyan particles orbiting in concentric rings. Bright streaks of light appear to emit from the orb's poles, suggesting energy jets, while smaller glowing nodes drift along the orbital paths. The overall composition evokes a pulsar or neutron star - a dense, high-energy core broadcasting signals across space.",
     "qwen-vl-max":
       "The logo's primary brand color is a vivid violet (#8B5CF6) paired with a cyan accent (#22D3EE) on a near-black backdrop. Complementary accent hues that would expand the palette include a warm amber (#FBBF24) for calls-to-action, a soft pink (#F472B6) for tertiary highlights, and a green (#34D399) for success states. These additions preserve the cosmic feel while improving contrast and accessibility for UI elements.",
   };
   return { text: responses[m.id] ?? "Generated response." };
 }
 
-// --- Featured provider (rotates weekly — deterministic by ISO week) --------
+// --- Featured provider (rotates weekly - deterministic by ISO week) --------
 
 const PROVIDERS = [
   {
@@ -797,8 +797,8 @@ export function ModelMarketplace() {
       >
         <SectionHeading
           eyebrow="Model Marketplace"
-          title="Run any open AI model — pay in $PULSAR"
-          subtitle="The Pulsar model marketplace aggregates the best open-weight AI models — all payable in $PULSAR, all running on decentralized suppliers. Browse, compare, and run with one click. Below is a preview of the marketplace — try any model for free (simulated)."
+          title="Run any open AI model - pay in $PULSAR"
+          subtitle="The Pulsar model marketplace aggregates the best open-weight AI models - all payable in $PULSAR, all running on decentralized suppliers. Browse, compare, and run with one click. Below is a preview of the marketplace - try any model for free (simulated)."
         />
 
         {/* Search + filters */}

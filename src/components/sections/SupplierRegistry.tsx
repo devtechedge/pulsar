@@ -300,7 +300,7 @@ export function SupplierRegistry() {
   const utilizationFactor = Math.min(0.95, Math.max(0.4, uptime / 100 * 0.95));
   const regionMult = REGION_MULT[region];
 
-  // Projected earnings — animated count-up via state in render-effect
+  // Projected earnings - animated count-up via state in render-effect
   const projected = useMemo(() => {
     const grossPerHr = rateNum * utilizationFactor * regionMult;
     const netPerHr = grossPerHr * 0.99; // 1% protocol fee
@@ -395,7 +395,7 @@ export function SupplierRegistry() {
         Node operators stake $PULSAR as collateral and earn rewards proportional
         to their verified compute contributions. Pricing is set by the network
         oracle based on GPU class, region, and demand. The more you supply, the
-        more you earn — minus a 1% protocol fee that funds the buyback-and-burn.
+        more you earn - minus a 1% protocol fee that funds the buyback-and-burn.
       </motion.p>
 
       <motion.div
@@ -735,7 +735,7 @@ export function SupplierRegistry() {
       >
         <div className="mb-4 flex items-center gap-2">
           <Award className="size-4.5 text-amber-300" />
-          <h3 className="font-display text-lg font-bold">Top suppliers — today</h3>
+          <h3 className="font-display text-lg font-bold">Top suppliers - today</h3>
           <span className="text-xs text-muted-foreground">by $PULSAR earned</span>
         </div>
         <div className="grid gap-2.5">

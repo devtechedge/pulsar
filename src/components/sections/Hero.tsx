@@ -23,7 +23,7 @@ export function Hero() {
       data-testid="hero"
       className="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl items-center overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
     >
-      {/* Mobile background glow — multi-layer diffuse nebula that blends into the page.
+      {/* Mobile background glow - multi-layer diffuse nebula that blends into the page.
           No hard edges, no visible circle. Just a soft atmospheric wash that fades
           naturally into the background on all sides. Hidden on lg+ (desktop uses 3D). */}
       <div className="pointer-events-none absolute inset-0 md:hidden lg:hidden" aria-hidden>
@@ -54,7 +54,7 @@ export function Hero() {
             filter: "blur(60px)",
           }}
         />
-        {/* Layer 4: subtle pulse rings emanating outward — on-brand Pulsar visual,
+        {/* Layer 4: subtle pulse rings emanating outward - on-brand Pulsar visual,
             but extremely faint so they read as atmosphere, not a graphic */}
         <div
           className="absolute right-8 top-1/4 size-48 rounded-full border border-pulsar-violet/10 animate-pulse-ring"
@@ -67,7 +67,7 @@ export function Hero() {
       </div>
 
       <div className="relative grid w-full items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-        {/* LEFT — copy + CTAs (full width on mobile) */}
+        {/* LEFT - copy + CTAs (full width on mobile) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export function Hero() {
           {/* subhead */}
           <p className="max-w-2xl text-base text-muted-foreground leading-relaxed sm:text-lg md:text-xl">
             Pay $PULSAR to run AI inference. Earn $PULSAR by supplying GPU power.
-            Deflationary by design — every compute job is a pulse of intelligence
+            Deflationary by design - every compute job is a pulse of intelligence
             across the network.
           </p>
 
@@ -146,7 +146,7 @@ export function Hero() {
           )}
         </motion.div>
 
-        {/* RIGHT — 3D Pulsar (desktop only).
+        {/* RIGHT - 3D Pulsar (desktop only).
             On mobile, the background orb above handles the visual.
             This column is hidden below lg to avoid taking vertical space. */}
         <motion.div
@@ -162,7 +162,7 @@ export function Hero() {
             <div className="absolute left-1/2 top-1/2 size-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-pulsar-cyan/30 animate-pulse-ring" style={{ animationDelay: "1.3s" }} />
             <div className="absolute left-1/2 top-1/2 size-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-pulsar-violet/30 animate-pulse-ring" style={{ animationDelay: "2.6s" }} />
           </div>
-          {/* 3D canvas — desktop only */}
+          {/* 3D canvas - desktop only */}
           <div className="absolute inset-0">
             <Pulsar3D />
           </div>

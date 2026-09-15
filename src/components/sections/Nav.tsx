@@ -26,7 +26,7 @@ const NAV_LINKS = [
   { href: "#staking", label: "Staking" },
 ];
 
-// Network / ecosystem dropdown — 10 new thematic sections grouped into 3 categories
+// Network / ecosystem dropdown - 10 new thematic sections grouped into 3 categories
 const NETWORK_GROUPS = [
   {
     label: "Token Economics",
@@ -105,7 +105,7 @@ export function Nav() {
             </Link>
           ))}
 
-          {/* Network dropdown — surfaces the 10 new sections */}
+          {/* Network dropdown - surfaces the 10 new sections */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button

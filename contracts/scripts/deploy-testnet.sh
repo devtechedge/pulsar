@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # =============================================================================
-# PULSAR — Base Sepolia Testnet Deployment Script
+# PULSAR - Base Sepolia Testnet Deployment Script
 # =============================================================================
 #
 # This script deploys Pulsar + PulsarStaking to Base Sepolia, verifies on
@@ -42,14 +42,14 @@ ETHERSCAN_KEY="${ETHERSCAN_API_KEY:-}"
 DEPLOYER_ADDR=$(cast wallet address "$DEPLOYER_PRIVATE_KEY")
 
 echo "=========================================="
-echo "  PULSAR — Base Sepolia Deployment"
+echo "  PULSAR - Base Sepolia Deployment"
 echo "=========================================="
 echo "RPC:            $RPC_URL"
 echo "Deployer:       $DEPLOYER_ADDR"
 echo "Treasury:       $TREASURY"
 echo "Liquidity:      $LIQUIDITY"
 echo "Team:           $TEAM"
-echo "Etherscan key:  ${ETHERSCAN_KEY:-(not set — skipping verification)}"
+echo "Etherscan key:  ${ETHERSCAN_KEY:-(not set - skipping verification)}"
 echo ""
 
 # Check deployer balance
@@ -58,7 +58,7 @@ echo "Deployer balance: $(cast --from-wei "$BALANCE" 2>/dev/null || echo "$BALAN
 if [ "$BALANCE" = "0" ] || [ -z "$BALANCE" ]; then
   echo ""
   echo "ERROR: Deployer has 0 balance. Fund it at:"
-  echo "  https://faucet.base.org  (Coinbase faucet — requires social verification)"
+  echo "  https://faucet.base.org  (Coinbase faucet - requires social verification)"
   echo "  https://www.alchemy.com/faucets/base-sepolia  (Alchemy faucet)"
   echo "  https://thirdweb.com/base-sepolia-testnet  (thirdweb faucet)"
   echo ""

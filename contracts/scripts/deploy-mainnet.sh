@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # =============================================================================
-# PULSAR — Base MAINNET Deployment Script
+# PULSAR - Base MAINNET Deployment Script
 # =============================================================================
 #
 # ⚠️  DO NOT RUN THIS WITHOUT:
@@ -45,7 +45,7 @@ ETHERSCAN_KEY="${ETHERSCAN_API_KEY:-}"
 DEPLOYER_ADDR=$(cast wallet address "$DEPLOYER_PRIVATE_KEY")
 
 echo "=========================================="
-echo "  ⚠️  PULSAR — BASE MAINNET DEPLOYMENT  ⚠️"
+echo "  ⚠️  PULSAR - BASE MAINNET DEPLOYMENT  ⚠️"
 echo "=========================================="
 echo ""
 echo "  This is a REAL mainnet deployment."
@@ -59,7 +59,7 @@ echo "Deployer:       $DEPLOYER_ADDR"
 echo "Treasury:       $TREASURY (should be your multisig)"
 echo "Liquidity:      $LIQUIDITY (should be your multisig)"
 echo "Team:           $TEAM (should be your multisig or vesting contract)"
-echo "Etherscan key:  ${ETHERSCAN_KEY:-(not set — skipping verification)}"
+echo "Etherscan key:  ${ETHERSCAN_KEY:-(not set - skipping verification)}"
 echo ""
 
 # Check deployer balance

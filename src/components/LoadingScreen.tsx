@@ -31,7 +31,7 @@ function readLoaded() {
 }
 
 /**
- * Initial page loader — particles coalesce into a Pulsar star over 1.2s,
+ * Initial page loader - particles coalesce into a Pulsar star over 1.2s,
  * then fade out. Only shows on first load (sessionStorage gated).
  */
 export function LoadingScreen() {

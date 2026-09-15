@@ -70,7 +70,7 @@ const MODELS: Model[] = [
 ];
 
 const PROMPT_PLACEHOLDERS: Record<ModelKind, string> = {
-  text: "Describe what you want the model to generate — a tweet, a SQL query, a one-paragraph summary…",
+  text: "Describe what you want the model to generate - a tweet, a SQL query, a one-paragraph summary…",
   image: "Describe the image to generate, e.g. 'a neon pulsar over a dark ocean, cinematic, 35mm'",
   voice: "Paste the transcript you want synthesized back to speech, or describe the audio to transcribe.",
   vision: "Paste a URL to the image you want analyzed, and the question you want answered about it.",
@@ -79,12 +79,12 @@ const PROMPT_PLACEHOLDERS: Record<ModelKind, string> = {
 const STAGES = ["Queued", "Routed to supplier", "Computing", "Settled"] as const;
 type Stage = (typeof STAGES)[number];
 
-// Pre-baked "AI output" tokens per model — typed to feel authentic.
+// Pre-baked "AI output" tokens per model - typed to feel authentic.
 const PRE_BAKED: Record<string, string> = {
   llama70b:
-    "Across decentralized networks, compute is the new commodity. Pulsar routes your prompt to the lowest-cost verified GPU supplier, settles payment in $PULSAR on Base, and streams the response back to your wallet. Every job is a pulse of intelligence. Suppliers stake collateral, oracle verifies output, and a 1% protocol fee funds buyback-and-burn — making the token deflationary as usage scales.",
+    "Across decentralized networks, compute is the new commodity. Pulsar routes your prompt to the lowest-cost verified GPU supplier, settles payment in $PULSAR on Base, and streams the response back to your wallet. Every job is a pulse of intelligence. Suppliers stake collateral, oracle verifies output, and a 1% protocol fee funds buyback-and-burn - making the token deflationary as usage scales.",
   "mistral-lg":
-    "Reasoning: the prompt implies a comparison between centralized cloud GPU and decentralized compute. Step 1 — model loads onto supplier GPU. Step 2 — input is tokenized. Step 3 — autoregressive decoding produces ~50 tokens. Step 4 — output hash is committed on-chain. Step 5 — payment releases from escrow to supplier. The Pulsar protocol guarantees all five steps for every job.",
+    "Reasoning: the prompt implies a comparison between centralized cloud GPU and decentralized compute. Step 1 - model loads onto supplier GPU. Step 2 - input is tokenized. Step 3 - autoregressive decoding produces ~50 tokens. Step 4 - output hash is committed on-chain. Step 5 - payment releases from escrow to supplier. The Pulsar protocol guarantees all five steps for every job.",
   qwen72b:
     "在你提交的提示词上，Pulsar 网络会执行以下流程：路由 → 验证 → 计算 → 结算。每个步骤在链上可验证。供应商通过质押 $PULSAR 加入网络，并根据其贡献的 TFLOPS 获得奖励。协议费 1% 用于回购与销毁，使 $PULSAR 随着网络使用量增长而变得稀缺。Every job is a verifiable pulse of compute.",
   sdxl:
@@ -776,7 +776,7 @@ export function ComputeConsole() {
         {history.length === 0 ? (
           <div className="flex flex-col items-center justify-center gap-2 py-10 text-center text-xs text-muted-foreground">
             <Terminal className="size-5 opacity-40" />
-            No jobs yet — run your first inference above.
+            No jobs yet - run your first inference above.
           </div>
         ) : (
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -799,7 +799,7 @@ export function ComputeConsole() {
 
         <div className="mt-4 flex items-center justify-end gap-1.5 text-[11px] text-muted-foreground">
           <ArrowRight className="size-3" />
-          All jobs settle on Base L2 — final in ~2 seconds.
+          All jobs settle on Base L2 - final in ~2 seconds.
         </div>
       </motion.div>
     </section>
@@ -807,7 +807,7 @@ export function ComputeConsole() {
 }
 
 // Small inline icon-like component for the monitor header (kept local to avoid
-// adding more lucide imports) — three pulsing dots to suggest activity.
+// adding more lucide imports) - three pulsing dots to suggest activity.
 function ActivityDots() {
   return (
     <div className="flex items-center gap-1">

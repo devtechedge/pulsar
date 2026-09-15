@@ -32,7 +32,7 @@ function useThemeColor() {
 }
 
 /**
- * Particle field — 500 points drifting around the star, attracted to its poles.
+ * Particle field - 500 points drifting around the star, attracted to its poles.
  */
 function ParticleField({ reduced }: { reduced: boolean }) {
   const points = useRef<Points>(null);
@@ -92,7 +92,7 @@ function ParticleField({ reduced }: { reduced: boolean }) {
 }
 
 /**
- * Volumetric polar jet — cone with gradient material.
+ * Volumetric polar jet - cone with gradient material.
  */
 function VolumetricJet({ position, flip = false, reduced }: { position: [number, number, number]; flip?: boolean; reduced: boolean }) {
   const mesh = useRef<Mesh>(null);
@@ -152,7 +152,7 @@ function RingSystem({ reduced }: { reduced: boolean }) {
 }
 
 /**
- * Mouse parallax — the whole scene subtly tilts toward the mouse.
+ * Mouse parallax - the whole scene subtly tilts toward the mouse.
  */
 function MouseParallax({ children }: { children: React.ReactNode }) {
   const group = useRef<Group>(null);
@@ -180,7 +180,7 @@ function MouseParallax({ children }: { children: React.ReactNode }) {
 }
 
 /**
- * PulsarCore — the central star with halo, jets, rings, particles.
+ * PulsarCore - the central star with halo, jets, rings, particles.
  */
 function PulsarCore() {
   const group = useRef<Group>(null);
@@ -218,13 +218,13 @@ function PulsarCore() {
       <VolumetricJet position={[0, 2, 0]} reduced={reduced} />
       <VolumetricJet position={[0, -2, 0]} flip reduced={reduced} />
 
-      {/* Accretion disk — inner violet ring */}
+      {/* Accretion disk - inner violet ring */}
       <mesh rotation={[Math.PI / 2.2, 0, 0]}>
         <ringGeometry args={[1.6, 2.0, 64]} />
         <meshBasicMaterial color="#7C3AED" transparent opacity={0.55} side={THREE.DoubleSide} />
       </mesh>
 
-      {/* Accretion disk — outer cyan ring */}
+      {/* Accretion disk - outer cyan ring */}
       <mesh rotation={[Math.PI / 2.2, 0, 0]}>
         <ringGeometry args={[2.05, 2.6, 64]} />
         <meshBasicMaterial color="#22D3EE" transparent opacity={0.35} side={THREE.DoubleSide} />

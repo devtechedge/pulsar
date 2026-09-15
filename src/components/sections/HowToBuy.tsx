@@ -11,7 +11,7 @@ const STEPS = [
   {
     n: "01",
     title: "Get ETH on Coinbase",
-    body: "Buy ETH on Coinbase, then bridge to Base — or use Coinbase's built-in Base network withdrawal to skip the bridge entirely. Either path lands spendable ETH on Base in minutes.",
+    body: "Buy ETH on Coinbase, then bridge to Base - or use Coinbase's built-in Base network withdrawal to skip the bridge entirely. Either path lands spendable ETH on Base in minutes.",
   },
   {
     n: "02",

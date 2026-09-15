@@ -1,4 +1,4 @@
-# Security Assessment — Pulsar
+# Security Assessment - Pulsar
 
 **Date:** 2026-09-06  
 **Scope:** Auth, XSS, injection, CORS, secrets, Web3 surface, dependency risk  
@@ -17,11 +17,11 @@
 | Wallet / Web3 | **Accepted** | WalletConnect + wagmi; user signs their own txs |
 | Secrets in repo | **Low** | Only `NEXT_PUBLIC_*` placeholders; no private keys |
 | CORS | **N/A** | Static export / Pages; no custom API origin |
-| Build config | **Hardened** | `ignoreBuildErrors` is **false** — type errors fail CI/build |
+| Build config | **Hardened** | `ignoreBuildErrors` is **false** - type errors fail CI/build |
 
-**Overall (public GitHub Pages demo):** Low residual risk — browser-only UI, mock telemetry, wallet connect is optional, contracts not live.
+**Overall (public GitHub Pages demo):** Low residual risk - browser-only UI, mock telemetry, wallet connect is optional, contracts not live.
 
-**Overall (if contracts go live without changing this model):** Medium — users can approve/stake via their wallet. Treat staking UI as a thin untrusted client; security lives in the Solidity contracts (`contracts/AUDIT.md`).
+**Overall (if contracts go live without changing this model):** Medium - users can approve/stake via their wallet. Treat staking UI as a thin untrusted client; security lives in the Solidity contracts (`contracts/AUDIT.md`).
 
 ---
 
@@ -45,7 +45,7 @@
 - `IS_LIVE` is derived from an allow-shape check (`0x` + 40 hex chars, not the zero address). Malformed env values do not flip the site into “live” mode.
 
 **Hardening applied**
-- `src/lib/validation.ts` — hex-address + zero-address guards used by `src/lib/wagmi.ts`.
+- `src/lib/validation.ts` - hex-address + zero-address guards used by `src/lib/wagmi.ts`.
 - Buy/sell tax constants are capped in code (`maxTaxBps: 500`); unit tests assert allocation and tax-share sums.
 
 ---
@@ -100,7 +100,7 @@ npm audit --omit=dev
 
 **Findings**
 - `.gitignore` excludes `.env`, `.env*.local`, `contracts/.env`, logs.
-- `.env.example` documents public addresses and WalletConnect project id — no credentials.
+- `.env.example` documents public addresses and WalletConnect project id - no credentials.
 - GitHub Actions Pages workflow may inject `NEXT_PUBLIC_*` from repo secrets; those values are public-by-design (they ship to the browser).
 
 ---

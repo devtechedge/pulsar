@@ -39,11 +39,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://devtechedge.github.io/pulsar"),
   title: {
-    default: "Pulsar — The Signal Layer for Decentralized AI Compute",
+    default: "Pulsar - The Signal Layer for Decentralized AI Compute",
     template: "%s · Pulsar",
   },
   description:
-    "PULSAR is the utility token powering decentralized AI compute — pay $PULSAR to run models, earn $PULSAR by supplying GPU power. On Base.",
+    "PULSAR is the utility token powering decentralized AI compute - pay $PULSAR to run models, earn $PULSAR by supplying GPU power. On Base.",
   keywords: [
     "Pulsar",
     "$PULSAR",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Pulsar Compute" }],
   creator: "Pulsar Compute",
   openGraph: {
-    title: "Pulsar — The Signal Layer for Decentralized AI Compute",
+    title: "Pulsar - The Signal Layer for Decentralized AI Compute",
     description:
       "Pay $PULSAR to run AI inference. Earn $PULSAR by supplying GPU power. Deflationary by design, on Base.",
     url: "https://devtechedge.github.io/pulsar",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pulsar — The Signal Layer for Decentralized AI Compute",
+    title: "Pulsar - The Signal Layer for Decentralized AI Compute",
     description:
       "Pay $PULSAR to run AI inference. Earn $PULSAR by supplying GPU power. On Base.",
     creator: "@pulsarcompute",
@@ -86,7 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" data-theme="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
       <head>
-        {/* Inline FOUC-prevention script — sets theme class before paint.
+        {/* Inline FOUC-prevention script - sets theme class before paint.
             JSX defaults to "dark" so SSR + first paint is always dark (no FOUC).
             The script + ThemeBootstrap then upgrade to the user's preferred theme
             (stored or system) before React commits its hydration pass. */}

@@ -63,7 +63,7 @@ function monthsBetween(a: Date, b: Date): number {
   return (b.getTime() - a.getTime()) / MS_PER_MONTH;
 }
 
-// Fixed TGE date — 14 months before a stable reference point.
+// Fixed TGE date - 14 months before a stable reference point.
 // We use a hardcoded date so SSR and CSR produce identical output.
 const TGE_DATE = new Date("2025-02-20T00:00:00Z");
 const REFERENCE_NOW = new Date("2026-04-20T00:00:00Z"); // = TGE + ~14 months
@@ -387,7 +387,7 @@ function ScheduleTable({ states }: { states: AllocState[] }) {
       <div className="mb-4">
         <h3 className="font-display text-lg font-bold">Schedule detail</h3>
         <p className="mt-1 text-sm text-muted-foreground">
-          Complete vesting parameters per allocation — fully encoded in the on-chain vesting contract
+          Complete vesting parameters per allocation - fully encoded in the on-chain vesting contract
         </p>
       </div>
       <div className="overflow-x-auto">
@@ -582,7 +582,7 @@ function ClaimSimulator() {
           </div>
           <div>
             <h3 className="font-display text-base font-bold">If you were a presale investor…</h3>
-            <p className="text-xs text-muted-foreground">Claiming simulator — educational preview</p>
+            <p className="text-xs text-muted-foreground">Claiming simulator - educational preview</p>
           </div>
         </div>
         <Badge className="border-pulsar-violet/30 bg-pulsar-violet/10 text-pulsar-violet">
@@ -682,7 +682,7 @@ export function VestingCalendar() {
         <SectionHeading
           eyebrow="Vesting Transparency"
           title="Every locked token, on a public calendar"
-          subtitle="Every team, treasury, and presale token is locked in a public, on-chain vesting contract. No silent unlocks, no opaque team allocations. The calendar below shows exactly when every token becomes liquid — now and for the next 3 years."
+          subtitle="Every team, treasury, and presale token is locked in a public, on-chain vesting contract. No silent unlocks, no opaque team allocations. The calendar below shows exactly when every token becomes liquid - now and for the next 3 years."
         />
 
         {/* KPI tiles */}

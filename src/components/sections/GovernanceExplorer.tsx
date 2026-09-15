@@ -56,11 +56,11 @@ interface Proposal {
 }
 
 const DAY = 24 * 60 * 60 * 1000;
-// Fixed reference timestamp — using Date.now() at module load causes SSR/CSR
+// Fixed reference timestamp - using Date.now() at module load causes SSR/CSR
 // hydration mismatch. Pin to a stable value at "today" (2026-06-20) so the
 // active proposals' endsAt stays in the future relative to the real clock.
 // Countdowns read Date.now() inside useEffect (client-only) so they tick live.
-const NOW = 1781913600000; // 2026-06-20T00:00:00Z — stable anchor near today
+const NOW = 1781913600000; // 2026-06-20T00:00:00Z - stable anchor near today
 
 const ACTIVE_PROPOSALS: Proposal[] = [
   {
@@ -456,7 +456,7 @@ export function GovernanceExplorer() {
   const [active, setActive] = useState<Proposal[]>(ACTIVE_PROPOSALS);
   const [voted, setVoted] = useState<Record<string, "for" | "against" | "abstain" | null>>({});
 
-  // Live vote ticking — small random walk every 4s on active proposals
+  // Live vote ticking - small random walk every 4s on active proposals
   useEffect(() => {
     const id = setInterval(() => {
       setActive((prev) =>
@@ -476,7 +476,7 @@ export function GovernanceExplorer() {
   const passedCount = HISTORY_PROPOSALS.filter((p) => p.status === "passed").length;
   const totalVotesThisCycle = active.reduce((acc, p) => acc + totalVotes(p), 0);
 
-  // Mock voting power — only if connected
+  // Mock voting power - only if connected
   const mockPulBalance = useMemo(() => {
     if (!address) return 0;
     // deterministic per-address
@@ -542,7 +542,7 @@ export function GovernanceExplorer() {
       <SectionHeading
         eyebrow="Governance"
         title="DAO over compute pricing &amp; protocol"
-        subtitle="$PULSAR stakers govern the network — on-chain, transparent, binding."
+        subtitle="$PULSAR stakers govern the network - on-chain, transparent, binding."
       />
 
       <motion.p
@@ -554,7 +554,7 @@ export function GovernanceExplorer() {
       >
         Pulsar is governed by $PULSAR stakers. Proposals cover compute pricing,
         treasury allocations, model whitelisting, and protocol parameters. Every
-        vote is on-chain, transparent, and binding — no off-chain side deals.
+        vote is on-chain, transparent, and binding - no off-chain side deals.
       </motion.p>
 
       {/* ---------------- KPI TILES + VOTING POWER ---------------- */}
@@ -661,7 +661,7 @@ export function GovernanceExplorer() {
               <>
                 <p className="text-[12px] leading-relaxed text-muted-foreground">
                   Delegate your voting power to another address. They will vote
-                  on your behalf — you keep full $PULSAR custody.
+                  on your behalf - you keep full $PULSAR custody.
                 </p>
                 <Input
                   type="text"

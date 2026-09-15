@@ -32,7 +32,7 @@ bash scripts/deploy-testnet.sh
 ### Step 1: Get testnet ETH
 
 1. Go to one of these faucets:
-   - https://faucet.base.org (Coinbase — requires social verification)
+   - https://faucet.base.org (Coinbase - requires social verification)
    - https://www.alchemy.com/faucets/base-sepolia (Alchemy)
    - https://thirdweb.com/base-sepolia-testnet (thirdweb)
 2. Paste your wallet address
@@ -175,7 +175,7 @@ cast send $PULSAR_TOKEN "setAutomatedMarketMakerPair(address,bool)" $PAIR true \
 
 ## Contract Overview
 
-### Pulsar.sol — ERC-20 Token
+### Pulsar.sol - ERC-20 Token
 
 | Feature | Value |
 |---------|-------|
@@ -192,7 +192,7 @@ cast send $PULSAR_TOKEN "setAutomatedMarketMakerPair(address,bool)" $PAIR true \
 | Upgradeable | No |
 | Burn | Yes (burn + burnFrom) |
 
-### PulsarStaking.sol — Staking
+### PulsarStaking.sol - Staking
 
 | Feature | Value |
 |---------|-------|

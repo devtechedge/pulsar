@@ -1,4 +1,4 @@
-# PULSAR — Audit Submission Package
+# PULSAR - Audit Submission Package
 
 **Prepared for:** Hacken (or equivalent security firm)
 **Date:** June 2026
@@ -43,17 +43,17 @@ State:
 └── Fee/limit exemptions: configurable per-address
 
 Key functions:
-├── constructor(treasury, liquidity, team) — mints full supply to deployer
-├── enableTrading() — one-way switch, onlyOwner
-├── setBuyTax(uint16) / setSellTax(uint16) — capped at 500 bps
-├── setTaxShares(uint16, uint16, uint16) — must sum to 10000
-├── setAutomatedMarketMakerPair(address, bool) — marks DEX pairs for tax detection
+├── constructor(treasury, liquidity, team) - mints full supply to deployer
+├── enableTrading() - one-way switch, onlyOwner
+├── setBuyTax(uint16) / setSellTax(uint16) - capped at 500 bps
+├── setTaxShares(uint16, uint16, uint16) - must sum to 10000
+├── setAutomatedMarketMakerPair(address, bool) - marks DEX pairs for tax detection
 ├── setExcludedFromFees(address, bool) / setExcludedFromLimits(address, bool)
-├── setMaxTx(uint256) / setMaxWallet(uint256) — within 0.5%-5% of supply
-├── removeLimits() — irreversible, removes max-tx + max-wallet
-├── burn(uint256) / burnFrom(address, uint256) — deflationary
-├── recoverERC20(address, address, uint256) — rescue accidentally sent tokens
-└── _update(from, to, amount) — override; applies tax + limits before transfer
+├── setMaxTx(uint256) / setMaxWallet(uint256) - within 0.5%-5% of supply
+├── removeLimits() - irreversible, removes max-tx + max-wallet
+├── burn(uint256) / burnFrom(address, uint256) - deflationary
+├── recoverERC20(address, address, uint256) - rescue accidentally sent tokens
+└── _update(from, to, amount) - override; applies tax + limits before transfer
 ```
 
 ### PulsarStaking.sol
@@ -68,20 +68,20 @@ State:
 ├── Reward rate: configurable by owner (multisig)
 ├── Reward pool: funded via topUpRewards()
 ├── User state: { amount, rewardDebt, pendingRewards }
-└── No locking — users can unstake anytime
+└── No locking - users can unstake anytime
 
 Key functions:
-├── constructor(pulsar) — sets staked token
-├── stake(uint256) — transferFrom + update rewards
-├── unstake(uint256) — transfer + update rewards
-├── claim() — transfer pending rewards
-├── exit() — unstake all + claim
-├── earned(address) — view, calculates pending rewards
-├── currentAPYBps() — view, current annual yield in bps
-├── topUpRewards(uint256) — onlyOwner, adds rewards + resets 30-day period
-├── setRewardRate(uint256) — onlyOwner
-├── pause() / unpause() — onlyOwner, emergency
-└── recoverERC20(address, address, uint256) — onlyOwner, cannot seize staked principal
+├── constructor(pulsar) - sets staked token
+├── stake(uint256) - transferFrom + update rewards
+├── unstake(uint256) - transfer + update rewards
+├── claim() - transfer pending rewards
+├── exit() - unstake all + claim
+├── earned(address) - view, calculates pending rewards
+├── currentAPYBps() - view, current annual yield in bps
+├── topUpRewards(uint256) - onlyOwner, adds rewards + resets 30-day period
+├── setRewardRate(uint256) - onlyOwner
+├── pause() / unpause() - onlyOwner, emergency
+└── recoverERC20(address, address, uint256) - onlyOwner, cannot seize staked principal
 ```
 
 ---
@@ -117,7 +117,7 @@ Key functions:
 | Tax bypass via pair manipulation | ✅ Protected | AMM pairs must be explicitly set; fee check on both from/to |
 | Sybil via max-wallet | ⚠️ Bypassable | Users can spread across wallets; accepted tradeoff for UX |
 
-### 3.3 Economic risks (OUT OF SCOPE — noted for completeness)
+### 3.3 Economic risks (OUT OF SCOPE - noted for completeness)
 
 | Risk | Impact | Mitigation |
 |------|--------|------------|
@@ -130,7 +130,7 @@ Key functions:
 ## 4. Design Decisions
 
 ### 4.1 Why not upgradeable?
-The contracts are **NOT upgradeable** by design. This is a trust feature — the source code is immortal and auditable. Any future feature additions will be deployed as new contracts (e.g., governance, compute settlement) rather than upgrading existing ones.
+The contracts are **NOT upgradeable** by design. This is a trust feature - the source code is immortal and auditable. Any future feature additions will be deployed as new contracts (e.g., governance, compute settlement) rather than upgrading existing ones.
 
 **Trade-off:** Bug fixes require a migration. Accepted in exchange for trust.
 
@@ -143,10 +143,10 @@ The 2%/2% transfer tax is the **interim** revenue mechanism. Once the compute se
 Anti-bot protection at launch. Both are **removable** (and will be removed within 30 days of launch once price discovery stabilizes). Hard-capped at 5% of supply to prevent owner abuse.
 
 ### 4.4 Why linear staking instead of compound?
-Simplicity + auditability. `earned = staked × (rewardPerToken_now - rewardPerToken_at_last_update)`. No compounding — users must manually restake. This matches Synthetix's StakingRewards pattern (battle-tested).
+Simplicity + auditability. `earned = staked × (rewardPerToken_now - rewardPerToken_at_last_update)`. No compounding - users must manually restake. This matches Synthetix's StakingRewards pattern (battle-tested).
 
 ### 4.5 Why SafeERC20 in staking but raw transfer in token?
-The token uses OpenZeppelin's ERC20 `_update` override (which handles the tax split internally). The staking contract uses `SafeERC20` because it interacts with the token as an external contract — `safeTransfer`/`safeTransferFrom` handle non-standard return values.
+The token uses OpenZeppelin's ERC20 `_update` override (which handles the tax split internally). The staking contract uses `SafeERC20` because it interacts with the token as an external contract - `safeTransfer`/`safeTransferFrom` handle non-standard return values.
 
 ### 4.6 Why `block.timestamp` for staking rewards?
 Staking uses `block.timestamp` for reward accrual. Validators can manipulate `block.timestamp` by ~15 seconds, but this only affects reward distribution timing (not amounts) and the economic impact is negligible (<0.001% of rewards per block).
@@ -234,7 +234,7 @@ Full lifecycle verified on local anvil node:
 
 3. **No permit/EIP-2612**: The token does not support gasless approvals. **Future:** Can be added via ERC20Permit extension if needed for CEX integrations.
 
-4. **Single reward token**: Staking only rewards in $PULSAR. **Future:** Can be upgraded to a multi-reward system via a new contract (not upgradeable — new deployment).
+4. **Single reward token**: Staking only rewards in $PULSAR. **Future:** Can be upgraded to a multi-reward system via a new contract (not upgradeable - new deployment).
 
 5. **No veToken/governance integration**: Staking does not lock tokens or confer voting power. **Future:** Separate governance contract will read staked balances via the staking contract.
 
@@ -288,7 +288,7 @@ forge flatten src/PulsarStaking.sol > out/PulsarStaking.flat.sol
 - [ ] Review integer precision (18 decimals throughout)
 - [ ] Review event emissions (sufficient for off-chain indexing?)
 - [ ] Review gas optimization (unnecessary storage reads/writes?)
-- [ ] Review Solidity version (0.8.24 — any known issues?)
+- [ ] Review Solidity version (0.8.24 - any known issues?)
 
 ---
 

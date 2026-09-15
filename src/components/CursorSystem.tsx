@@ -121,7 +121,7 @@ export function CursorSystem() {
     const magnetElements = Array.from(document.querySelectorAll(magnetSelector));
 
     const raf = () => {
-      // Magnetic offset — bend cursor toward nearest magnetic CTA within 80px.
+      // Magnetic offset - bend cursor toward nearest magnetic CTA within 80px.
       let mx = 0;
       let my = 0;
       for (const el of magnetElements) {
