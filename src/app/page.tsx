@@ -1,5 +1,7 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
 import { Background } from "@/components/sections/Background";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
@@ -27,13 +29,33 @@ import { VestingCalendar } from "@/components/sections/VestingCalendar";
 import { ModelMarketplace } from "@/components/sections/ModelMarketplace";
 
 // New UI layer (Step 3)
-import { CursorSystem } from "@/components/CursorSystem";
-import { ScrollProgress3D } from "@/components/ScrollProgress3D";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { SectionDivider } from "@/components/SectionDivider";
-import { KonamiBurst } from "@/components/KonamiBurst";
-import { LiveActivityToasts } from "@/components/LiveActivityToasts";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
+
+/**
+ * Pure chrome, split out of the entry chunk.
+ *
+ * The cursor, scroll indicator, Konami easter egg and activity toasts are
+ * decorative: no content and no test depends on them, but they were pulling
+ * their animation code into the bundle that blocks first paint. They mount a
+ * beat later instead. `ssr: false` is legal here because this page is a Client
+ * Component.
+ */
+const CursorSystem = dynamic(() => import("@/components/CursorSystem").then((m) => m.CursorSystem), {
+  ssr: false,
+});
+const ScrollProgress3D = dynamic(
+  () => import("@/components/ScrollProgress3D").then((m) => m.ScrollProgress3D),
+  { ssr: false },
+);
+const KonamiBurst = dynamic(() => import("@/components/KonamiBurst").then((m) => m.KonamiBurst), {
+  ssr: false,
+});
+const LiveActivityToasts = dynamic(
+  () => import("@/components/LiveActivityToasts").then((m) => m.LiveActivityToasts),
+  { ssr: false },
+);
 
 const SECTION_LIST = [
   <Hero key="hero" />,
