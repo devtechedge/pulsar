@@ -345,14 +345,14 @@ export function TokenMetricsDashboard() {
       </div>
 
       {/* ---------------- TOP ROW ---------------- */}
-      <div className="mt-12 grid gap-6 lg:grid-cols-2">
+      <div className="mt-12 grid min-w-0 gap-6 lg:grid-cols-2">
         {/* Supply breakdown */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="glass glass-hover rounded-2xl p-5 md:p-7"
+          className="min-w-0 overflow-hidden glass glass-hover rounded-2xl p-5 md:p-7"
         >
           <div className="mb-4 flex items-center justify-between">
             <div>
@@ -424,7 +424,7 @@ export function TokenMetricsDashboard() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="glass glass-hover rounded-2xl p-5 md:p-7"
+          className="min-w-0 overflow-hidden glass glass-hover rounded-2xl p-5 md:p-7"
         >
           <div className="mb-4 flex items-center justify-between">
             <div>
@@ -511,7 +511,7 @@ export function TokenMetricsDashboard() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="glass glass-hover rounded-2xl p-5 md:p-7"
+          className="min-w-0 overflow-hidden glass glass-hover rounded-2xl p-5 md:p-7"
         >
           <div className="mb-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -591,7 +591,7 @@ export function TokenMetricsDashboard() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          className="glass glass-hover rounded-2xl p-5 md:p-7"
+          className="min-w-0 overflow-hidden glass glass-hover rounded-2xl p-5 md:p-7"
         >
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">

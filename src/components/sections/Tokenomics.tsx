@@ -73,7 +73,7 @@ export function Tokenomics() {
       />
 
       {/* Charts */}
-      <div className="mt-16 grid gap-6 lg:grid-cols-2">
+      <div className="mt-16 grid min-w-0 gap-6 lg:grid-cols-2">
         {/* Donut */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -296,7 +296,7 @@ export function Tokenomics() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true, margin: "-80px" }}
-        className="mt-6 glass rounded-2xl p-4 md:p-6"
+        className="mt-6 min-w-0 overflow-x-auto glass rounded-2xl p-4 md:p-6"
       >
         <h3 className="mb-4 px-2 font-display text-lg font-bold">Vesting schedule</h3>
         <Table>

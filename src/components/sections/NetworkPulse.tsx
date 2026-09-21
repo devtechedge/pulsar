@@ -646,7 +646,7 @@ export function NetworkPulse() {
         />
 
         {/* KPI strip */}
-        <div className="mt-14 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="mt-14 grid min-w-0 grid-cols-2 gap-4 lg:grid-cols-4">
           <KpiTile
             icon={Zap}
             label="Jobs / sec"
@@ -679,7 +679,7 @@ export function NetworkPulse() {
         </div>
 
         {/* Main grid: graph + sidebar */}
-        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-3">
           <Card className="glass relative overflow-hidden p-3 md:p-4 lg:col-span-2">
             <div className="absolute left-3 top-3 z-10 flex items-center gap-2">
               <Badge className="border-pulsar-violet/30 bg-pulsar-violet/10 text-pulsar-violet">

@@ -90,7 +90,7 @@ export default function Home() {
       <LiveActivityToasts />
       <Background />
       <Nav />
-      <main className="flex-1">
+      <main className="min-w-0 flex-1 overflow-x-hidden">
         {SECTION_LIST.map((section, i) => (
           <div key={i}>
             {section}

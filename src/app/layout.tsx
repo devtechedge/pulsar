@@ -95,7 +95,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-pulsar/30 selection:text-white`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-background text-foreground min-h-screen min-w-0 flex flex-col overflow-x-hidden selection:bg-pulsar/30 selection:text-white`}
       >
         <ThemeBootstrap />
         <ThemeProvider>

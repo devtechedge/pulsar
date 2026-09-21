@@ -26,7 +26,7 @@ export function Hero() {
       {/* Mobile background glow - multi-layer diffuse nebula that blends into the page.
           No hard edges, no visible circle. Just a soft atmospheric wash that fades
           naturally into the background on all sides. Hidden on lg+ (desktop uses 3D). */}
-      <div className="pointer-events-none absolute inset-0 md:hidden lg:hidden" aria-hidden>
+      <div className="pointer-events-none absolute inset-0 overflow-hidden md:hidden lg:hidden" aria-hidden>
         {/* Layer 1: large soft violet wash, top-right */}
         <div
           className="absolute -right-32 -top-24 h-[140%] w-[140%] rounded-full"
