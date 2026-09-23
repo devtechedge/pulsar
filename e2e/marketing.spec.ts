@@ -19,7 +19,6 @@ test.describe("Pulsar marketing site", () => {
     await expect(page.getByTestId("hero")).toBeVisible({ timeout: 20_000 });
 
     const section = page.getByTestId("tokenomics");
-    await section.scrollIntoViewIfNeeded();
     await expect(section).toBeVisible({ timeout: 20_000 });
     await expect(section.getByText(/1,?000,?000,?000/)).toBeVisible();
   });
