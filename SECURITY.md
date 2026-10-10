@@ -71,8 +71,8 @@ Removed unused template packages (and their CVE surface):
 - `cmdk`, `vaul`, `sonner`, `react-hook-form`, `@hookform/resolvers`, `react-day-picker`, `uuid`, `embla-carousel-react`, `input-otp`, `@reactuses/core`, `date-fns`
 - Unused Radix/shadcn widgets (accordion, calendar, sidebar, etc.)
 
-**Held:** `sharp` 0.34.x (Next 16 image pipeline; no untrusted uploads).  
 **Held:** `wagmi` / `viem` / `@rainbow-me/rainbowkit` (required for wallet UI).
+**Formerly held:** `sharp` 0.34.x, lifted 10 Oct 2026 when Next 16.4.0 moved to sharp 0.35.5.
 
 ### How to re-audit
 
@@ -123,7 +123,7 @@ GitHub Pages uses `output: "export"`. Vercel (if used) must **not** use `output:
 - No user authentication on the public site.
 - Mock telemetry (burns, job feed, holders) is illustrative, not on-chain.
 - Wallet connect with a demo WalletConnect project id.
-- `sharp` 0.34.x until Next 16 tracks 0.35.
+- `sharp` 0.34.x until Next 16 tracks 0.35. **Lifted 10 Oct 2026:** Next 16.4.0 ships sharp 0.35.5, so `sharp` moved to `^0.35.5` and the hold is closed.
 
 **Not accepted at TGE**
 - Shipping a real token address without a completed external audit.
